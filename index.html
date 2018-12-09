@@ -155,6 +155,21 @@
     <article id="post-使用Hexo和Git搭建个人博客" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/09/使用Hexo和Git搭建个人博客/">使用Hexo和Git搭建个人博客</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/09/使用Hexo和Git搭建个人博客/" class="archive-article-date">
+  	<time datetime="2018-12-09T13:51:03.402Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-09</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="使用Hexo和Git搭建个人博客"><a href="#使用Hexo和Git搭建个人博客" class="headerlink" title="使用Hexo和Git搭建个人博客"></a>使用Hexo和Git搭建个人博客</h1><h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><h4 id="1-了解Hexo"><a href="#1-了解Hexo" class="headerlink" title="1.了解Hexo"></a>1.了解Hexo</h4><p> <a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">Hexo</a>是高效的静态站点生成框架，她基于Node.js。 通过 Hexo 你可以使用 </p>
@@ -258,6 +273,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -485,6 +511,21 @@
     <article id="post-ES6新特性九iterator迭代器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/08/ES6新特性九iterator迭代器/">ES6新特性九iterator迭代器</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/08/ES6新特性九iterator迭代器/" class="archive-article-date">
+  	<time datetime="2018-12-08T08:33:12.275Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-08</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="ES6新特性九iterator迭代器"><a href="#ES6新特性九iterator迭代器" class="headerlink" title="ES6新特性九iterator迭代器"></a>ES6新特性九iterator迭代器</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h4 id="for-of可以遍历Array，set-和Map-，但是不能遍历Object"><a href="#for-of可以遍历Array，set-和Map-，但是不能遍历Object" class="headerlink" title="for-of可以遍历Array，set 和Map ，但是不能遍历Object"></a>for-of可以遍历Array，set 和Map ，但是不能遍历Object</h4><h4 id="Object-没有实现iterator接口"><a href="#Object-没有实现iterator接口" class="headerlink" title="Object 没有实现iterator接口"></a>Object 没有实现iterator接口</h4><h4 id="iterator"><a href="#iterator" class="headerlink" title="iterator"></a>iterator</h4><h2 id="实现要点"><a href="#实现要点" class="headerlink" title="实现要点"></a>实现要点</h2><h4 id="实现Symbol-iterator方法"><a href="#实现Symbol-iterator方法" class="headerlink" title="实现Symbol.iterator方法"></a>实现Symbol.iterator方法</h4><h4 id="返回对象"><a href="#返回对象" class="headerlink" title="返回对象"></a>返回对象</h4><h4 id="实现next-方法"><a href="#实现next-方法" class="headerlink" title="实现next 方法"></a>实现next 方法</h4><h4 id="next方法返回值必须是对象（done-value-done是false代表有值，done为true代表结尾"><a href="#next方法返回值必须是对象（done-value-done是false代表有值，done为true代表结尾" class="headerlink" title="next方法返回值必须是对象（done,value):done是false代表有值，done为true代表结尾"></a>next方法返回值必须是对象（done,value):done是false代表有值，done为true代表结尾</h4><h3 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">let arr = [&apos;A&apos; , &apos;B&apos; , &apos;C&apos;];</span><br><span class="line"></span><br><span class="line"> for(let value of arr)&#123;</span><br><span class="line">     console.log(value);</span><br><span class="line"> &#125;</span><br><span class="line"> console.warn(&apos;&apos;);</span><br><span class="line"></span><br><span class="line"> let it = arr[Symbol.iterator]();</span><br><span class="line"></span><br><span class="line"> let temp = it.next();</span><br><span class="line"> console.log(temp);</span><br><span class="line"></span><br><span class="line"> temp = it.next();</span><br><span class="line"> console.log(temp);</span><br><span class="line"></span><br><span class="line"> temp = it.next();</span><br><span class="line"> console.log(temp);</span><br><span class="line"></span><br><span class="line"> temp = it.next();</span><br><span class="line"> console.log(temp);</span><br></pre></td></tr></table></figure>
@@ -497,6 +538,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
