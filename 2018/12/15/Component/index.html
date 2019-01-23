@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Component组件angular项目的基本单元 意义复用 易于扩展 创建组件ng generate component 文件夹/组件名 注意：组件名小写，中间用中划线分割 组件的组成物理结构html css ts 逻辑结构注解（组件声明）注意：标签名用特定的前缀 ​           视图和样式可以使用内部也可以使用外部的 控制器：组件类：处理外界逻辑的视图html文件HTML元素Angul">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/12/15/Component/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Component组件angular项目的基本单元 意义复用 易于扩展 创建组件ng generate component 文件夹/组件名 注意：组件名小写，中间用中划线分割 组件的组成物理结构html css ts 逻辑结构注解（组件声明）注意：标签名用特定的前缀 ​           视图和样式可以使用内部也可以使用外部的 控制器：组件类：处理外界逻辑的视图html文件HTML元素Angul">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-15T09:00:50.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="Component组件angular项目的基本单元 意义复用 易于扩展 创建组件ng generate component 文件夹/组件名 注意：组件名小写，中间用中划线分割 组件的组成物理结构html css ts 逻辑结构注解（组件声明）注意：标签名用特定的前缀 ​           视图和样式可以使用内部也可以使用外部的 控制器：组件类：处理外界逻辑的视图html文件HTML元素Angul">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,296 +154,195 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Component" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h1><h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>angular项目的基本单元</p>
+<h2 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h2><p>复用</p>
+<p>易于扩展</p>
+<h2 id="创建组件"><a href="#创建组件" class="headerlink" title="创建组件"></a>创建组件</h2><p>ng generate component 文件夹/组件名</p>
+<p>注意：组件名小写，中间用中划线分割</p>
+<h2 id="组件的组成"><a href="#组件的组成" class="headerlink" title="组件的组成"></a>组件的组成</h2><h3 id="物理结构"><a href="#物理结构" class="headerlink" title="物理结构"></a>物理结构</h3><p>html</p>
+<p>css</p>
+<p>ts</p>
+<h3 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h3><h4 id="注解（组件声明）"><a href="#注解（组件声明）" class="headerlink" title="注解（组件声明）"></a>注解（组件声明）</h4><p>注意：标签名用特定的前缀</p>
+<p>​           视图和样式可以使用内部也可以使用外部的</p>
+<h4 id="控制器：组件类：处理外界逻辑的"><a href="#控制器：组件类：处理外界逻辑的" class="headerlink" title="控制器：组件类：处理外界逻辑的"></a>控制器：组件类：处理外界逻辑的</h4><h4 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h4><h5 id="html文件"><a href="#html文件" class="headerlink" title="html文件"></a>html文件</h5><h6 id="HTML元素"><a href="#HTML元素" class="headerlink" title="HTML元素"></a>HTML元素</h6><h6 id="Angular元素"><a href="#Angular元素" class="headerlink" title="Angular元素"></a>Angular元素</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">插值表达式：&#123;&#123;常量，变量或者表达式&#125;&#125;</span><br><span class="line"></span><br><span class="line">指令：实现特定的行为的属性或者标签，组件是一种特殊的指令</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">管道：格式化输出，格式化方法</span><br><span class="line">    管道号 |</span><br><span class="line">    </span><br><span class="line">组件：component</span><br><span class="line"></span><br><span class="line">注：模板变量：命名：#名称-----》Dom对象</span><br><span class="line">    作用域--》视图模板</span><br></pre></td></tr></table></figure>
+<h6 id="css文件"><a href="#css文件" class="headerlink" title="css文件"></a>css文件</h6><h4 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h4><h5 id="数据传递的方式"><a href="#数据传递的方式" class="headerlink" title="数据传递的方式"></a>数据传递的方式</h5><h5 id="单向传递"><a href="#单向传递" class="headerlink" title="单向传递"></a>单向传递</h5><h6 id="控制器-gt-视图模板—》"><a href="#控制器-gt-视图模板—》" class="headerlink" title="控制器-&gt;视图模板—》"></a>控制器-&gt;视图模板—》</h6><p>插值表达式：当绑定的是boolean 类的属性时候，会失效（属性绑定）</p>
+<p>属性绑定：[属性]=”常量，变量或者表达式”</p>
+<p>样式绑定：ng-class,ng-style—&gt;</p>
+<p>[ngClass]=’类名’。类名可以字符串常量，变量-</p>
+<p>[ngClass]={‘类名1’，’类名2’……..}</p>
+<p>[ngClass]={‘类名1’：boolean,’类名2’：boolean…….}</p>
+<p>​                   </p>
+<h6 id="视图模板-》控制器—》事件"><a href="#视图模板-》控制器—》事件" class="headerlink" title="视图模板-》控制器—》事件"></a>视图模板-》控制器—》事件</h6><p>视图：(事件名)=’方法’</p>
+<p>控制器：事件处理的方法</p>
+<p>注：模板中加$event</p>
+<p>​      控制器中加Event:对象</p>
+<h5 id="双向传递"><a href="#双向传递" class="headerlink" title="双向传递"></a>双向传递</h5><h6 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h6><p>视图模板</p>
+<h6 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h6><p>[(ngModel)]=”变量”</p>
+<h6 id="注：引入内置的FormsMoudel模板"><a href="#注：引入内置的FormsMoudel模板" class="headerlink" title="注：引入内置的FormsMoudel模板"></a>注：引入内置的FormsMoudel模板</h6><p>ngModel通常绑定表单控件上（input,textarea,select）</p>
+<h2 id="组件的交互"><a href="#组件的交互" class="headerlink" title="组件的交互"></a>组件的交互</h2><h3 id="父组件-gt-子组件"><a href="#父组件-gt-子组件" class="headerlink" title="父组件-&gt;子组件"></a>父组件-&gt;子组件</h3><h4 id="Input属性：接受父组件传递的值"><a href="#Input属性：接受父组件传递的值" class="headerlink" title="Input属性：接受父组件传递的值"></a>Input属性：接受父组件传递的值</h4><h4 id="用法：子组件属性上添加Input注解：-Input-，-Input-‘属性别名’"><a href="#用法：子组件属性上添加Input注解：-Input-，-Input-‘属性别名’" class="headerlink" title="用法：子组件属性上添加Input注解：@Input()，@Input(‘属性别名’)"></a>用法：子组件属性上添加Input注解：@Input()，@Input(‘属性别名’)</h4><h4 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h4><p>输入属性可以有，也可以没有，也可以有多个</p>
+<p>​       输入的属性可以是基本类型，也可以是引用类型</p>
+<h3 id="子组件-gt-父组件"><a href="#子组件-gt-父组件" class="headerlink" title="子组件-&gt;父组件"></a>子组件-&gt;父组件</h3><h4 id="Output属性：子组件向父组件以事件的方式传递数据"><a href="#Output属性：子组件向父组件以事件的方式传递数据" class="headerlink" title="Output属性：子组件向父组件以事件的方式传递数据"></a>Output属性：子组件向父组件以事件的方式传递数据</h4><h4 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h4><h5 id="创建事件："><a href="#创建事件：" class="headerlink" title="创建事件："></a>创建事件：</h5><p>EventEmmit</p>
+<p>Output注解</p>
+<h5 id="触发事件"><a href="#触发事件" class="headerlink" title="触发事件"></a>触发事件</h5><p>emit（参数）</p>
+<h5 id="监听事件"><a href="#监听事件" class="headerlink" title="监听事件"></a>监听事件</h5><p>父组件中（事件）=’方法‘</p>
+<h3 id="ViewChild注解"><a href="#ViewChild注解" class="headerlink" title="ViewChild注解"></a>ViewChild注解</h3><p>功能：父组件调用子组件方法或者成员</p>
+<p>实现：父组件中  @ViewChild(子组件类型)</p>
+<p>特点：相比于Input属性，保护子组件中的属性</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/23/WebPack/" class="archive-article-date">
-  	<time datetime="2019-01-23T06:08:10.088Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/23/WebPack/">Webpack</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/15/Component/" class="archive-article-date">
-  	<time datetime="2018-12-15T09:00:49.961Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      </div>
+    </span>
+  </div>
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/15/Component/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/13/第一个Angular项目/" class="archive-article-date">
-  	<time datetime="2018-12-13T12:20:08.026Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/13/初识angular/" class="archive-article-date">
-  	<time datetime="2018-12-13T11:32:51.714Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2019/01/23/WebPack/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Webpack
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/13/第一个Angular项目/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/10/特性四for-of/" class="archive-article-date">
-  	<time datetime="2018-12-10T03:12:27.014Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-10</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/10/特性五-函数/" class="archive-article-date">
-  	<time datetime="2018-12-10T03:12:24.178Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-10</time>
-</a>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Component"><span class="toc-number">1.</span> <span class="toc-text">Component</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#组件"><span class="toc-number">1.1.</span> <span class="toc-text">组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#意义"><span class="toc-number">1.2.</span> <span class="toc-text">意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建组件"><span class="toc-number">1.3.</span> <span class="toc-text">创建组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件的组成"><span class="toc-number">1.4.</span> <span class="toc-text">组件的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#物理结构"><span class="toc-number">1.4.1.</span> <span class="toc-text">物理结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑结构"><span class="toc-number">1.4.2.</span> <span class="toc-text">逻辑结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注解（组件声明）"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">注解（组件声明）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#控制器：组件类：处理外界逻辑的"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">控制器：组件类：处理外界逻辑的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#视图"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">视图</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#html文件"><span class="toc-number">1.4.2.3.1.</span> <span class="toc-text">html文件</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#HTML元素"><span class="toc-number">1.4.2.3.1.1.</span> <span class="toc-text">HTML元素</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Angular元素"><span class="toc-number">1.4.2.3.1.2.</span> <span class="toc-text">Angular元素</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#css文件"><span class="toc-number">1.4.2.3.1.3.</span> <span class="toc-text">css文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据绑定"><span class="toc-number">1.4.2.4.</span> <span class="toc-text">数据绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#数据传递的方式"><span class="toc-number">1.4.2.4.1.</span> <span class="toc-text">数据传递的方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#单向传递"><span class="toc-number">1.4.2.4.2.</span> <span class="toc-text">单向传递</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#控制器-gt-视图模板—》"><span class="toc-number">1.4.2.4.2.1.</span> <span class="toc-text">控制器-&gt;视图模板—》</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#视图模板-》控制器—》事件"><span class="toc-number">1.4.2.4.2.2.</span> <span class="toc-text">视图模板-》控制器—》事件</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#双向传递"><span class="toc-number">1.4.2.4.3.</span> <span class="toc-text">双向传递</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#控制器"><span class="toc-number">1.4.2.4.3.1.</span> <span class="toc-text">控制器</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#实现"><span class="toc-number">1.4.2.4.3.2.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#注：引入内置的FormsMoudel模板"><span class="toc-number">1.4.2.4.3.3.</span> <span class="toc-text">注：引入内置的FormsMoudel模板</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件的交互"><span class="toc-number">1.5.</span> <span class="toc-text">组件的交互</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#父组件-gt-子组件"><span class="toc-number">1.5.1.</span> <span class="toc-text">父组件-&gt;子组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Input属性：接受父组件传递的值"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">Input属性：接受父组件传递的值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用法：子组件属性上添加Input注解：-Input-，-Input-‘属性别名’"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">用法：子组件属性上添加Input注解：@Input()，@Input(‘属性别名’)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注："><span class="toc-number">1.5.1.3.</span> <span class="toc-text">注：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子组件-gt-父组件"><span class="toc-number">1.5.2.</span> <span class="toc-text">子组件-&gt;父组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Output属性：子组件向父组件以事件的方式传递数据"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">Output属性：子组件向父组件以事件的方式传递数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现："><span class="toc-number">1.5.2.2.</span> <span class="toc-text">实现：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#创建事件："><span class="toc-number">1.5.2.2.1.</span> <span class="toc-text">创建事件：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#触发事件"><span class="toc-number">1.5.2.2.2.</span> <span class="toc-text">触发事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监听事件"><span class="toc-number">1.5.2.2.3.</span> <span class="toc-text">监听事件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewChild注解"><span class="toc-number">1.5.3.</span> <span class="toc-text">ViewChild注解</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/10/特性八-promise/" class="archive-article-date">
-  	<time datetime="2018-12-10T03:12:10.216Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-10</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/10/ES6的新特性-模块/" class="archive-article-date">
-  	<time datetime="2018-12-10T03:12:02.578Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-10</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/09/使用Hexo和Git搭建个人博客/" class="archive-article-date">
-  	<time datetime="2018-12-09T13:51:03.402Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-09</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/09/使用Hexo和Git搭建个人博客/">使用Hexo和Git搭建个人博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/09/Typescript入门01/" class="archive-article-date">
-  	<time datetime="2018-12-09T12:37:26.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/09/Typescript入门01/">Typescript入门</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -463,8 +366,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

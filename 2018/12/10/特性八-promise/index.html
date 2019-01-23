@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="ES6新特性八：promise功能异步处理方案：相比回调，结构更加的清晰定义存储多个等待的执行方法的容器待执行方法对象基本的使用方法创建promise的对象new Promise(匿名函数)；注：匿名函数通常是带有两个参数的方法即function(resolve,reject);调用promise相关的方法，完成相应的功能：promise.then()——成功时候调用和promise.catch(">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/12/10/特性八-promise/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ES6新特性八：promise功能异步处理方案：相比回调，结构更加的清晰定义存储多个等待的执行方法的容器待执行方法对象基本的使用方法创建promise的对象new Promise(匿名函数)；注：匿名函数通常是带有两个参数的方法即function(resolve,reject);调用promise相关的方法，完成相应的功能：promise.then()——成功时候调用和promise.catch(">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-10T03:12:10.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="ES6新特性八：promise功能异步处理方案：相比回调，结构更加的清晰定义存储多个等待的执行方法的容器待执行方法对象基本的使用方法创建promise的对象new Promise(匿名函数)；注：匿名函数通常是带有两个参数的方法即function(resolve,reject);调用promise相关的方法，完成相应的功能：promise.then()——成功时候调用和promise.catch(">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,296 +154,165 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-特性八-promise" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ES6新特性八：promise"><a href="#ES6新特性八：promise" class="headerlink" title="ES6新特性八：promise"></a>ES6新特性八：promise</h1><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h4 id="异步处理方案：相比回调，结构更加的清晰"><a href="#异步处理方案：相比回调，结构更加的清晰" class="headerlink" title="异步处理方案：相比回调，结构更加的清晰"></a>异步处理方案：相比回调，结构更加的清晰</h4><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h4 id="存储多个等待的执行方法的容器"><a href="#存储多个等待的执行方法的容器" class="headerlink" title="存储多个等待的执行方法的容器"></a>存储多个等待的执行方法的容器</h4><h4 id="待执行方法对象"><a href="#待执行方法对象" class="headerlink" title="待执行方法对象"></a><strong>待执行方法对象</strong></h4><h2 id="基本的使用方法"><a href="#基本的使用方法" class="headerlink" title="基本的使用方法"></a>基本的使用方法</h2><h3 id="创建promise的对象"><a href="#创建promise的对象" class="headerlink" title="创建promise的对象"></a>创建promise的对象</h3><h4 id="new-Promise-匿名函数-；"><a href="#new-Promise-匿名函数-；" class="headerlink" title="new Promise(匿名函数)；"></a>new Promise(匿名函数)；</h4><h4 id="注：匿名函数通常是带有两个参数的方法即function-resolve-reject"><a href="#注：匿名函数通常是带有两个参数的方法即function-resolve-reject" class="headerlink" title="注：匿名函数通常是带有两个参数的方法即function(resolve,reject);"></a>注：匿名函数通常是带有两个参数的方法即function(resolve,reject);</h4><h4 id="调用promise相关的方法，完成相应的功能："><a href="#调用promise相关的方法，完成相应的功能：" class="headerlink" title="调用promise相关的方法，完成相应的功能："></a>调用promise相关的方法，完成相应的功能：</h4><h4 id="promise-then-——成功时候调用"><a href="#promise-then-——成功时候调用" class="headerlink" title="promise.then()——成功时候调用"></a>promise.then()——成功时候调用</h4><h4 id="和promise-catch-——–失败时候调用"><a href="#和promise-catch-——–失败时候调用" class="headerlink" title="和promise.catch()——–失败时候调用"></a>和promise.catch()——–失败时候调用</h4><h3 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var showData = function(ms)&#123;</span><br><span class="line">          var promise = new Promise(</span><br><span class="line">          function(resolve)&#123;</span><br><span class="line">              setTimeout(function()&#123;</span><br><span class="line">                  resolve();</span><br><span class="line">              &#125; , ms);</span><br><span class="line">          &#125;);</span><br><span class="line">          return promise;</span><br><span class="line">      &#125;</span><br><span class="line">    </span><br><span class="line">      </span><br><span class="line">      showData(2000).then(() =&gt; &#123;</span><br><span class="line">          console.log(1);</span><br><span class="line">          return showData(200);</span><br><span class="line">      &#125;).then(() =&gt; &#123;</span><br><span class="line">          console.log(2);</span><br><span class="line">          return showData(20);</span><br><span class="line">      &#125;).then(() =&gt; &#123;</span><br><span class="line">          console.log(3);</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="经典案例"><a href="#经典案例" class="headerlink" title="经典案例"></a>经典案例</h3><h4 id="按顺序加载图片，第一张没有加载成功下一张不可以加载"><a href="#按顺序加载图片，第一张没有加载成功下一张不可以加载" class="headerlink" title="按顺序加载图片，第一张没有加载成功下一张不可以加载"></a>按顺序加载图片，第一张没有加载成功下一张不可以加载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;button&gt;加载图片&lt;/button&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;img src=&quot;#&quot; width=&quot;128&quot; alt=&quot;&quot;&gt;</span><br><span class="line">        &lt;img src=&quot;#&quot; width=&quot;128&quot; alt=&quot;&quot;&gt;</span><br><span class="line">        &lt;img src=&quot;#&quot; width=&quot;128&quot; alt=&quot;&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        let image1 = &apos;http://101.200.58.3/app/img/test1.jpg&apos;;</span><br><span class="line">        let image2 = &apos;http://101.200.58.3/app/img/test2.jpg&apos;;</span><br><span class="line">        let image3 = &apos;http://101.200.58.3/app/img/test3.jpg&apos;;</span><br><span class="line"></span><br><span class="line">        let btnLoad = document.querySelector(&apos;button&apos;);</span><br><span class="line">        let images = document.querySelectorAll(&apos;img&apos;);</span><br><span class="line"></span><br><span class="line">        btnLoad.onclick = function()&#123;</span><br><span class="line">            loadImage(image1)</span><br><span class="line">                .then((res) =&gt; &#123;</span><br><span class="line">                    images[0].src = res.src;</span><br><span class="line">                    return loadImage(image2);</span><br><span class="line">                &#125;).then((res) =&gt; &#123;</span><br><span class="line">                    images[1].src = res.src;</span><br><span class="line">                    return loadImage(image3);</span><br><span class="line">                &#125;).then((res) =&gt; &#123;</span><br><span class="line">                    images[2].src = res.src;</span><br><span class="line">                &#125;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /*</span><br><span class="line">            请求图片资源</span><br><span class="line">        */</span><br><span class="line">        function loadImage(url)&#123;</span><br><span class="line">            let p = new Promise((resolve , reject) =&gt; &#123;</span><br><span class="line">                let image = new Image();</span><br><span class="line">                image.onload = function()&#123;</span><br><span class="line">                    resolve(image);</span><br><span class="line">                &#125;</span><br><span class="line">                image.onerror = function()&#123;</span><br><span class="line">                    reject(&apos;load image fauilre&apos;);</span><br><span class="line">                &#125;</span><br><span class="line">                image.src = url;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            return p;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="扩展方法"><a href="#扩展方法" class="headerlink" title="扩展方法"></a>扩展方法</h2><h3 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h3><h5 id="可以将多个Promise实例包装成一个新的Promise实例。同时，成功和失败的返回值是不同的，成功的时候返回的是一个结果数组，而失败的时候则返回最先被reject失败状态的值。"><a href="#可以将多个Promise实例包装成一个新的Promise实例。同时，成功和失败的返回值是不同的，成功的时候返回的是一个结果数组，而失败的时候则返回最先被reject失败状态的值。" class="headerlink" title="可以将多个Promise实例包装成一个新的Promise实例。同时，成功和失败的返回值是不同的，成功的时候返回的是一个结果数组，而失败的时候则返回最先被reject失败状态的值。"></a>可以将多个Promise实例包装成一个新的Promise实例。同时，成功和失败的返回值是不同的，成功的时候返回的是一个结果数组，而失败的时候则返回最先被reject失败状态的值。</h5><h4 id="案例二"><a href="#案例二" class="headerlink" title="案例二"></a>案例二</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&lt;button&gt;加载图片&lt;/button&gt;</span><br><span class="line">   &lt;div&gt;</span><br><span class="line">       &lt;img src=&quot;#&quot; width=&quot;128&quot; alt=&quot;&quot;&gt;</span><br><span class="line">       &lt;img src=&quot;#&quot; width=&quot;128&quot; alt=&quot;&quot;&gt;</span><br><span class="line">       &lt;img src=&quot;#&quot; width=&quot;128&quot; alt=&quot;&quot;&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">   &lt;script&gt;</span><br><span class="line">       let image1 = &apos;http://101.200.58.3/app/img/test1.jpg&apos;;</span><br><span class="line">       let image2 = &apos;http://101.200.58.3/app/img/test2.jpg&apos;;</span><br><span class="line">       let image3 = &apos;http://101.200.58.3/app/img/test3.jpg&apos;;</span><br><span class="line"></span><br><span class="line">       let btnLoad = document.querySelector(&apos;button&apos;);</span><br><span class="line">       let images = document.querySelectorAll(&apos;img&apos;);</span><br><span class="line"></span><br><span class="line">       btnLoad.onclick = function()&#123;</span><br><span class="line">           let p1 = loadImage(image1);</span><br><span class="line">           let p2 = loadImage(image2);</span><br><span class="line">           let p3 = loadImage(image3);</span><br><span class="line"></span><br><span class="line">           let promise = Promise.all([p1 , p2 , p3]);</span><br><span class="line">           promise.then((res) =&gt; &#123;</span><br><span class="line">               for(let i = 0 ;i &lt; res.length; i++)&#123;</span><br><span class="line">                   images[i].src = res[i].src;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;);</span><br><span class="line">       &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">       /*</span><br><span class="line">           请求图片资源</span><br><span class="line">       */</span><br><span class="line">       function loadImage(url)&#123;</span><br><span class="line">           let p = new Promise((resolve , reject) =&gt; &#123;</span><br><span class="line">               let image = new Image();</span><br><span class="line">               image.onload = function()&#123;</span><br><span class="line">                   resolve(image);</span><br><span class="line">               &#125;</span><br><span class="line">               image.onerror = function()&#123;</span><br><span class="line">                   reject(&apos;load image fauilre&apos;);</span><br><span class="line">               &#125;</span><br><span class="line">               image.src = url;</span><br><span class="line">           &#125;);</span><br><span class="line"></span><br><span class="line">           return p;</span><br><span class="line">       &#125;</span><br><span class="line">   &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race"></a>Promise.race</h3><h5 id="顾名思义，Promse-race就是赛跑的意思，意思就是说，Promise-race-p1-p2-p3-里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。"><a href="#顾名思义，Promse-race就是赛跑的意思，意思就是说，Promise-race-p1-p2-p3-里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。" class="headerlink" title="顾名思义，Promse.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。"></a>顾名思义，Promse.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let p1 = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">  setTimeout(() =&gt; &#123;</span><br><span class="line">    resolve(&apos;success&apos;)</span><br><span class="line">  &#125;,1000)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">let p2 = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">  setTimeout(() =&gt; &#123;</span><br><span class="line">    reject(&apos;failed&apos;)</span><br><span class="line">  &#125;, 500)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Promise.race([p1, p2]).then((result) =&gt; &#123;</span><br><span class="line">  console.log(result)</span><br><span class="line">&#125;).catch((error) =&gt; &#123;</span><br><span class="line">  console.log(error)  // 打开的是 &apos;failed&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><h4 id="状态不可控制"><a href="#状态不可控制" class="headerlink" title="状态不可控制"></a>状态不可控制</h4><h4 id="观察者模式rxjx"><a href="#观察者模式rxjx" class="headerlink" title="观察者模式rxjx"></a>观察者模式rxjx</h4>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/23/WebPack/" class="archive-article-date">
-  	<time datetime="2019-01-23T06:08:10.088Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/23/WebPack/">Webpack</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/15/Component/" class="archive-article-date">
-  	<time datetime="2018-12-15T09:00:49.961Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      </div>
+    </span>
+  </div>
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/10/特性八-promise/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/13/第一个Angular项目/" class="archive-article-date">
-  	<time datetime="2018-12-13T12:20:08.026Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/13/初识angular/" class="archive-article-date">
-  	<time datetime="2018-12-13T11:32:51.714Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2018/12/10/特性五-函数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/10/ES6的新特性-模块/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/10/特性四for-of/" class="archive-article-date">
-  	<time datetime="2018-12-10T03:12:27.014Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-10</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/10/特性五-函数/" class="archive-article-date">
-  	<time datetime="2018-12-10T03:12:24.178Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-10</time>
-</a>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ES6新特性八：promise"><span class="toc-number">1.</span> <span class="toc-text">ES6新特性八：promise</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#功能"><span class="toc-number">1.1.</span> <span class="toc-text">功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#异步处理方案：相比回调，结构更加的清晰"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">异步处理方案：相比回调，结构更加的清晰</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.2.</span> <span class="toc-text">定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#存储多个等待的执行方法的容器"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">存储多个等待的执行方法的容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#待执行方法对象"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">待执行方法对象</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#基本的使用方法"><span class="toc-number">1.3.</span> <span class="toc-text">基本的使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建promise的对象"><span class="toc-number">1.3.1.</span> <span class="toc-text">创建promise的对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#new-Promise-匿名函数-；"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">new Promise(匿名函数)；</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注：匿名函数通常是带有两个参数的方法即function-resolve-reject"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">注：匿名函数通常是带有两个参数的方法即function(resolve,reject);</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#调用promise相关的方法，完成相应的功能："><span class="toc-number">1.3.1.3.</span> <span class="toc-text">调用promise相关的方法，完成相应的功能：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#promise-then-——成功时候调用"><span class="toc-number">1.3.1.4.</span> <span class="toc-text">promise.then()——成功时候调用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#和promise-catch-——–失败时候调用"><span class="toc-number">1.3.1.5.</span> <span class="toc-text">和promise.catch()——–失败时候调用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#案例一"><span class="toc-number">1.3.2.</span> <span class="toc-text">案例一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#经典案例"><span class="toc-number">1.3.3.</span> <span class="toc-text">经典案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#按顺序加载图片，第一张没有加载成功下一张不可以加载"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">按顺序加载图片，第一张没有加载成功下一张不可以加载</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展方法"><span class="toc-number">1.4.</span> <span class="toc-text">扩展方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-all"><span class="toc-number">1.4.1.</span> <span class="toc-text">Promise.all</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#可以将多个Promise实例包装成一个新的Promise实例。同时，成功和失败的返回值是不同的，成功的时候返回的是一个结果数组，而失败的时候则返回最先被reject失败状态的值。"><span class="toc-number">1.4.1.0.1.</span> <span class="toc-text">可以将多个Promise实例包装成一个新的Promise实例。同时，成功和失败的返回值是不同的，成功的时候返回的是一个结果数组，而失败的时候则返回最先被reject失败状态的值。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#案例二"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">案例二</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-race"><span class="toc-number">1.4.2.</span> <span class="toc-text">Promise.race</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#顾名思义，Promse-race就是赛跑的意思，意思就是说，Promise-race-p1-p2-p3-里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。"><span class="toc-number">1.4.2.0.1.</span> <span class="toc-text">顾名思义，Promse.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不足"><span class="toc-number">1.5.</span> <span class="toc-text">不足</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#状态不可控制"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">状态不可控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#观察者模式rxjx"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">观察者模式rxjx</span></a></li></ol></li>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/10/特性八-promise/" class="archive-article-date">
-  	<time datetime="2018-12-10T03:12:10.216Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-10</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/10/ES6的新特性-模块/" class="archive-article-date">
-  	<time datetime="2018-12-10T03:12:02.578Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-10</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/09/使用Hexo和Git搭建个人博客/" class="archive-article-date">
-  	<time datetime="2018-12-09T13:51:03.402Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-09</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/09/使用Hexo和Git搭建个人博客/">使用Hexo和Git搭建个人博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/09/Typescript入门01/" class="archive-article-date">
-  	<time datetime="2018-12-09T12:37:26.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/09/Typescript入门01/">Typescript入门</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -463,8 +336,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
