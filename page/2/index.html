@@ -152,6 +152,730 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Component" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/15/Component/">Component</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/15/Component/" class="archive-article-date">
+  	<time datetime="2018-12-15T09:00:49.961Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h1><h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>angular项目的基本单元</p>
+<h2 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h2><p>复用</p>
+<p>易于扩展</p>
+<h2 id="创建组件"><a href="#创建组件" class="headerlink" title="创建组件"></a>创建组件</h2><p>ng generate component 文件夹/组件名</p>
+<p>注意：组件名小写，中间用中划线分割</p>
+<h2 id="组件的组成"><a href="#组件的组成" class="headerlink" title="组件的组成"></a>组件的组成</h2><h3 id="物理结构"><a href="#物理结构" class="headerlink" title="物理结构"></a>物理结构</h3><p>html</p>
+<p>css</p>
+<p>ts</p>
+<h3 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h3><h4 id="注解（组件声明）"><a href="#注解（组件声明）" class="headerlink" title="注解（组件声明）"></a>注解（组件声明）</h4><p>注意：标签名用特定的前缀</p>
+<p>​           视图和样式可以使用内部也可以使用外部的</p>
+<h4 id="控制器：组件类：处理外界逻辑的"><a href="#控制器：组件类：处理外界逻辑的" class="headerlink" title="控制器：组件类：处理外界逻辑的"></a>控制器：组件类：处理外界逻辑的</h4><h4 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h4><h5 id="html文件"><a href="#html文件" class="headerlink" title="html文件"></a>html文件</h5><h6 id="HTML元素"><a href="#HTML元素" class="headerlink" title="HTML元素"></a>HTML元素</h6><h6 id="Angular元素"><a href="#Angular元素" class="headerlink" title="Angular元素"></a>Angular元素</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">插值表达式：&#123;&#123;常量，变量或者表达式&#125;&#125;</span><br><span class="line"></span><br><span class="line">指令：实现特定的行为的属性或者标签，组件是一种特殊的指令</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">管道：格式化输出，格式化方法</span><br><span class="line">    管道号 |</span><br><span class="line">    </span><br><span class="line">组件：component</span><br><span class="line"></span><br><span class="line">注：模板变量：命名：#名称-----》Dom对象</span><br><span class="line">    作用域--》视图模板</span><br></pre></td></tr></table></figure>
+<h6 id="css文件"><a href="#css文件" class="headerlink" title="css文件"></a>css文件</h6><h4 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h4><h5 id="数据传递的方式"><a href="#数据传递的方式" class="headerlink" title="数据传递的方式"></a>数据传递的方式</h5><h5 id="单向传递"><a href="#单向传递" class="headerlink" title="单向传递"></a>单向传递</h5><h6 id="控制器-gt-视图模板—》"><a href="#控制器-gt-视图模板—》" class="headerlink" title="控制器-&gt;视图模板—》"></a>控制器-&gt;视图模板—》</h6><p>插值表达式：当绑定的是boolean 类的属性时候，会失效（属性绑定）</p>
+<p>属性绑定：[属性]=”常量，变量或者表达式”</p>
+<p>样式绑定：ng-class,ng-style—&gt;</p>
+<p>[ngClass]=’类名’。类名可以字符串常量，变量-</p>
+<p>[ngClass]={‘类名1’，’类名2’……..}</p>
+<p>[ngClass]={‘类名1’：boolean,’类名2’：boolean…….}</p>
+<p>​                   </p>
+<h6 id="视图模板-》控制器—》事件"><a href="#视图模板-》控制器—》事件" class="headerlink" title="视图模板-》控制器—》事件"></a>视图模板-》控制器—》事件</h6><p>视图：(事件名)=’方法’</p>
+<p>控制器：事件处理的方法</p>
+<p>注：模板中加$event</p>
+<p>​      控制器中加Event:对象</p>
+<h5 id="双向传递"><a href="#双向传递" class="headerlink" title="双向传递"></a>双向传递</h5><h6 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h6><p>视图模板</p>
+<h6 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h6><p>[(ngModel)]=”变量”</p>
+<h6 id="注：引入内置的FormsMoudel模板"><a href="#注：引入内置的FormsMoudel模板" class="headerlink" title="注：引入内置的FormsMoudel模板"></a>注：引入内置的FormsMoudel模板</h6><p>ngModel通常绑定表单控件上（input,textarea,select）</p>
+<h2 id="组件的交互"><a href="#组件的交互" class="headerlink" title="组件的交互"></a>组件的交互</h2><h3 id="父组件-gt-子组件"><a href="#父组件-gt-子组件" class="headerlink" title="父组件-&gt;子组件"></a>父组件-&gt;子组件</h3><h4 id="Input属性：接受父组件传递的值"><a href="#Input属性：接受父组件传递的值" class="headerlink" title="Input属性：接受父组件传递的值"></a>Input属性：接受父组件传递的值</h4><h4 id="用法：子组件属性上添加Input注解：-Input-，-Input-‘属性别名’"><a href="#用法：子组件属性上添加Input注解：-Input-，-Input-‘属性别名’" class="headerlink" title="用法：子组件属性上添加Input注解：@Input()，@Input(‘属性别名’)"></a>用法：子组件属性上添加Input注解：@Input()，@Input(‘属性别名’)</h4><h4 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h4><p>输入属性可以有，也可以没有，也可以有多个</p>
+<p>​       输入的属性可以是基本类型，也可以是引用类型</p>
+<h3 id="子组件-gt-父组件"><a href="#子组件-gt-父组件" class="headerlink" title="子组件-&gt;父组件"></a>子组件-&gt;父组件</h3><h4 id="Output属性：子组件向父组件以事件的方式传递数据"><a href="#Output属性：子组件向父组件以事件的方式传递数据" class="headerlink" title="Output属性：子组件向父组件以事件的方式传递数据"></a>Output属性：子组件向父组件以事件的方式传递数据</h4><h4 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h4><h5 id="创建事件："><a href="#创建事件：" class="headerlink" title="创建事件："></a>创建事件：</h5><p>EventEmmit</p>
+<p>Output注解</p>
+<h5 id="触发事件"><a href="#触发事件" class="headerlink" title="触发事件"></a>触发事件</h5><p>emit（参数）</p>
+<h5 id="监听事件"><a href="#监听事件" class="headerlink" title="监听事件"></a>监听事件</h5><p>父组件中（事件）=’方法‘</p>
+<h3 id="ViewChild注解"><a href="#ViewChild注解" class="headerlink" title="ViewChild注解"></a>ViewChild注解</h3><p>功能：父组件调用子组件方法或者成员</p>
+<p>实现：父组件中  @ViewChild(子组件类型)</p>
+<p>特点：相比于Input属性，保护子组件中的属性</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/15/Component/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-第一个Angular项目" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/13/第一个Angular项目/">第一个Angular项目</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/13/第一个Angular项目/" class="archive-article-date">
+  	<time datetime="2018-12-13T12:20:08.026Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第一个Angular项目"><a href="#第一个Angular项目" class="headerlink" title="第一个Angular项目"></a>第一个Angular项目</h1><h3 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h3><p>创建项目:ng new </p>
+<p>添加组件:ng generate component </p>
+<p>统一预览:ng serve –open –port 4200</p>
+<p>打包部署:ng build</p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p>插件下载详情</p>
+<h4 id="angular-json"><a href="#angular-json" class="headerlink" title="angular.json"></a>angular.json</h4><p>index:启动页面</p>
+<p>main:脚本入口</p>
+<p>styles:外部样式</p>
+<p>​           全局样式</p>
+<p>scripts:第三方脚本</p>
+<h4 id="src-源码"><a href="#src-源码" class="headerlink" title="src(源码)"></a>src(源码)</h4><h5 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h5><h5 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h5><h5 id="style-css"><a href="#style-css" class="headerlink" title="style.css"></a>style.css</h5><h5 id="app"><a href="#app" class="headerlink" title="app"></a>app</h5><h6 id="angular代码文件"><a href="#angular代码文件" class="headerlink" title="angular代码文件"></a>angular代码文件</h6><h6 id="app-module-ts—–-gt-引导模块"><a href="#app-module-ts—–-gt-引导模块" class="headerlink" title="app.module.ts—–&gt;引导模块"></a>app.module.ts—–&gt;引导模块</h6><p>bootstrap:指定根组件</p>
+<p>declarations:注册自定义组件</p>
+<p>providers:注册全局服务</p>
+<h5 id="assets-静态资源"><a href="#assets-静态资源" class="headerlink" title="assets:静态资源"></a>assets:静态资源</h5><h3 id="项目框架"><a href="#项目框架" class="headerlink" title="项目框架"></a>项目框架</h3><h4 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h4><h5 id="Component：组件"><a href="#Component：组件" class="headerlink" title="Component：组件"></a>Component：组件</h5><p>Component</p>
+<p>Directive</p>
+<p>Pipe</p>
+<h5 id="service：服务"><a href="#service：服务" class="headerlink" title="service：服务"></a>service：服务</h5><h5 id="Router：路由"><a href="#Router：路由" class="headerlink" title="Router：路由"></a>Router：路由</h5>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/13/第一个Angular项目/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-初识angular" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/13/初识angular/">初识angular</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/13/初识angular/" class="archive-article-date">
+  	<time datetime="2018-12-13T11:32:51.714Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="初识angular"><a href="#初识angular" class="headerlink" title="初识angular"></a>初识angular</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>Google</p>
+<p>javascript（angular1.x）或者TypeScript( angular2.0以上 ):编写所用语言</p>
+<p>SPA:单页面</p>
+<p>MVVM模式：M（model）V (view) VM(将后台数据显示到前端页面上中间的处理相当于controller)</p>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><p>跨平台</p>
+<p>速度与性能</p>
+<p>组件化</p>
+<p>兼容性好</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="node-npm-git"><a href="#node-npm-git" class="headerlink" title="node+npm+git"></a>node+npm+git</h3><h3 id="全局安装typeScript"><a href="#全局安装typeScript" class="headerlink" title="全局安装typeScript"></a>全局安装typeScript</h3><h4 id="npm-install-g-typescript-推荐查看typescript中文网"><a href="#npm-install-g-typescript-推荐查看typescript中文网" class="headerlink" title="npm  install -g typescript (推荐查看typescript中文网)"></a>npm  install -g typescript (推荐查看typescript中文网)</h4><p>注：angular版本angular1.x ————&gt;javascript</p>
+<p>​                             angular&gt;=2.0——–&gt;typescript</p>
+<h3 id="全局安装angular-cli"><a href="#全局安装angular-cli" class="headerlink" title="全局安装angular/cli"></a>全局安装angular/cli</h3><h5 id="angular命令行工具，快速构建angular项目工具"><a href="#angular命令行工具，快速构建angular项目工具" class="headerlink" title="angular命令行工具，快速构建angular项目工具"></a>angular命令行工具，快速构建angular项目工具</h5><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>npm install -g @angular/cli</p>
+<p>npm install -g @angular/cli @版本号</p>
+<p>注意：ng –version查看angular版本号</p>
+<p>​           ng help</p>
+<h5 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h5><p>创建项目：ng new 项目名称</p>
+<p>ng generate(g)组件 ，服务，类,管道 ——–》添加组件</p>
+<p>组件：ng g c section-first/home-component</p>
+<p>服务：ng g service services/data</p>
+<p>管道：ng g pipe pipes/filter</p>
+<p>启动项目：ng serve –open –port 4200(默认的，可以改变端口号)；</p>
+<p>打包项目：ng build –port -aot</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>Module:模块</p>
+<p>Service:服务</p>
+<p>Router:路由</p>
+<p>Component :组件Component   Directive指令    Pipe管道</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/13/初识angular/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ES6的新特性-模块" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ES6的新特性-模板"><a href="#ES6的新特性-模板" class="headerlink" title="ES6的新特性-模板"></a>ES6的新特性-模板</h1><h2 id="模块化的实现"><a href="#模块化的实现" class="headerlink" title="模块化的实现"></a>模块化的实现</h2><h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>AMD 即<code>Asynchronous Module Definition</code>，中文名是<strong>异步模块定义</strong>的意思。它是一个在浏览器端模块化开发的规范</p>
+<p>由于不是JavaScript原生支持，使用AMD规范进行页面开发需要用到对应的库函数，也就是大名鼎鼎<code>RequireJS</code>，实际上AMD 是 RequireJS 在推广过程中对模块定义的规范化的产出</p>
+<p>requireJS主要解决两个问题</p>
+<ol>
+<li>多个js文件可能有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器</li>
+<li>js加载的时候浏览器会停止页面渲染，加载文件越多，页面失去响应时间越长</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">define(id?, dependencies?, factory);</span><br><span class="line">id：可选参数，用来定义模块的标识，如果没有提供该参数，脚本文件名（去掉拓展名）</span><br><span class="line">dependencies：是一个当前模块依赖的模块名称数组</span><br><span class="line">factory：工厂方法，模块初始化要执行的函数或对象。如果为函数，它应该只被执行一次。如果是对象，此对象应该为模块的输出值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">require()函数接受两个参数</span><br><span class="line">第一个参数是一个数组，表示所依赖的模块</span><br><span class="line">第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块</span><br></pre></td></tr></table></figure>
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><h4 id="common-js"><a href="#common-js" class="headerlink" title="common.js"></a>common.js</h4><p>export</p>
+<p>require</p>
+<h2 id="ES6实现"><a href="#ES6实现" class="headerlink" title="ES6实现"></a>ES6实现</h2><h3 id="export"><a href="#export" class="headerlink" title="export"></a>export</h3><h4 id="import"><a href="#import" class="headerlink" title="import"></a>import</h4><p>注：文本即模块</p>
+<p>浏览器无法直接使用exprot 和import 通过babel转换</p>
+<p>babel： ES6转ES5</p>
+<h2 id="具体做法"><a href="#具体做法" class="headerlink" title="具体做法"></a>具体做法</h2><h4 id="GIt-BASH指令"><a href="#GIt-BASH指令" class="headerlink" title="GIt BASH指令"></a>GIt BASH指令</h4><p>1、项目初始化<br>    npm init –y</p>
+<p>2、安装本地gulp<br>    npm install gulp –save-dev</p>
+<p>3、安装babel与babelify<br>    npm install –save-dev babelify @babel/core<br>    npm install –save-dev @babel/preset-env @babel/preset-react</p>
+<p>4、安装打包插件browserify<br>    npm install browserify –save-dev</p>
+<p>5、安装打包辅助插件vinyl-source-stream<br>    npm install vinyl-source-stream –save-dev</p>
+<p>6、编写脚本打包任务<br>    gulp.task(‘script’ , function(){<br>            let b = browerify({<br>                entries:’./src/js/app.js’,<br>                transform:babelify.configure({<br>                        presets: [“@babel/preset-env”, “@babel/preset-react”]<br>                })<br>            });</p>
+<pre><code>b.bundle()
+ .pipe(source(&apos;bundle.js&apos;))
+ .pipe(gulp.dest(&apos;dist/js/&apos;));
+</code></pre><p>});<br>    注：可以添加脚本压缩</p>
+<h4 id="gulpfile-js"><a href="#gulpfile-js" class="headerlink" title="gulpfile.js"></a>gulpfile.js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line"></span><br><span class="line">var babelify = require(&apos;babelify&apos;);</span><br><span class="line">var browserfiy = require(&apos;browserify&apos;);</span><br><span class="line">var source = require(&apos;vinyl-source-stream&apos;);</span><br><span class="line">var uglify = require(&apos;gulp-uglify-cli&apos;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;html&apos; , function()&#123;</span><br><span class="line">    gulp.src(&apos;./src/index.html&apos;)</span><br><span class="line">    .pipe(gulp.dest(&apos;./dist/&apos;));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;script&apos; , function()&#123;</span><br><span class="line">    browserfiy(&#123;</span><br><span class="line">        entries:[&apos;./src/js/app.js&apos;]</span><br><span class="line">    &#125;)</span><br><span class="line">    .transform(babelify.configure(&#123;</span><br><span class="line">        presets: [&quot;@babel/preset-env&quot;, &quot;@babel/preset-react&quot;]</span><br><span class="line">    &#125;))</span><br><span class="line">    .bundle()</span><br><span class="line">    .pipe(source(&apos;bundle.js&apos;))</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(&apos;./dist/js/&apos;));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;default&apos; , [&apos;html&apos; , &apos;script&apos;] , function()&#123;</span><br><span class="line">    gulp.watch(&apos;./src/js/*.js&apos; , [&apos;script&apos;]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="ajax-js"><a href="#ajax-js" class="headerlink" title="ajax.js"></a>ajax.js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var value = 100;</span><br><span class="line"></span><br><span class="line">const URL_ROOT = &apos;http://&apos;;      // 导出常量</span><br><span class="line"></span><br><span class="line">function getJson()&#123;              //  导出函数</span><br><span class="line">    console.log(&apos;函数&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Person&#123;</span><br><span class="line">    constructor(name)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    sayHi()&#123;</span><br><span class="line">        console.log(&apos;类&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">export &#123;URL_ROOT , getJson, Person&#125;</span><br><span class="line">// export default &#123;URL_ROOT , getJson , Person&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123;URL_ROOT , Person ,getJson&#125; from &apos;./ajax&apos;;</span><br><span class="line">console.log(URL_ROOT);</span><br><span class="line">getJson();</span><br><span class="line">new Person().sayHi();</span><br><span class="line"></span><br><span class="line">// import ajax from &apos;./ajax&apos;;</span><br><span class="line"></span><br><span class="line">// console.log(ajax.URL_ROOT);</span><br><span class="line">// ajax.getJson();</span><br><span class="line">// let person = new ajax.Person();</span><br><span class="line">// person.sayHi();</span><br></pre></td></tr></table></figure>
+<h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;js/bundle.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/10/ES6的新特性-模块/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-使用Hexo和Git搭建个人博客" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/09/使用Hexo和Git搭建个人博客/">使用Hexo和Git搭建个人博客</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/09/使用Hexo和Git搭建个人博客/" class="archive-article-date">
+  	<time datetime="2018-12-09T13:51:03.402Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="使用Hexo和Git搭建个人博客"><a href="#使用Hexo和Git搭建个人博客" class="headerlink" title="使用Hexo和Git搭建个人博客"></a>使用Hexo和Git搭建个人博客</h1><h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><h4 id="1-了解Hexo"><a href="#1-了解Hexo" class="headerlink" title="1.了解Hexo"></a>1.了解Hexo</h4><p> <a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">Hexo</a>是高效的静态站点生成框架，她基于Node.js。 通过 Hexo 你可以使用 </p>
+<p> Markdown 编写文章</p>
+<h4 id="2-搭建Node-js环境"><a href="#2-搭建Node-js环境" class="headerlink" title="2.搭建Node.js环境"></a>2.搭建Node.js环境</h4><p>搭建博客网站首先需要安装Node.js环境。</p>
+<p>下载地址：<a href="http://nodejs.cn/download" target="_blank" rel="noopener">http://nodejs.cn/download</a> </p>
+<p>测试安装：命令行使用node -v 、npm -v，查看显示版本号即成功。</p>
+<p>Ps:大部分同学装的node版本是之前提供的5.0.0多的 hexo的初始化步骤中会出现报错，需要重新装最新的版本（10.0.0多的）</p>
+<h4 id="3-安装Hexo博客框架工具"><a href="#3-安装Hexo博客框架工具" class="headerlink" title="3. 安装Hexo博客框架工具"></a>3. 安装Hexo博客框架工具</h4><p>Hexo是一个建站工具，可以帮助我们快速生成基本的博客文件，安装它需要在</p>
+<p>控制台下（cmd）使用如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<h4 id="4-安装Git版本工具"><a href="#4-安装Git版本工具" class="headerlink" title="4.安装Git版本工具"></a>4.安装Git版本工具</h4><p>Git是目前世界上最流行的分布式版本控制系统</p>
+<h4 id="使用Git可以帮助我们把本地的网页和文章等内容提交到Github上，实现同步。"><a href="#使用Git可以帮助我们把本地的网页和文章等内容提交到Github上，实现同步。" class="headerlink" title="使用Git可以帮助我们把本地的网页和文章等内容提交到Github上，实现同步。"></a>使用Git可以帮助我们把本地的网页和文章等内容提交到Github上，实现同步。</h4><h4 id="下载地址：https-git-scm-com-downloads"><a href="#下载地址：https-git-scm-com-downloads" class="headerlink" title="下载地址：https://git-scm.com/downloads"></a>下载地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></h4><p>测试安装:右击鼠标，如果有git bash等两个选项 即安装成功。</p>
+<h4 id="5-注册Github账号"><a href="#5-注册Github账号" class="headerlink" title="5.注册Github账号"></a>5.注册Github账号</h4><p>   gitHub是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式</p>
+<p> 进行托管，故名gitHub。这里用到Github，是因为我们需要通过Github得到自己的博客网</p>
+<p> 站域名，而且需要使用gitHub同步我们个人博客的相关文件。 </p>
+<p> 注册地址：<a href="https://github.com" target="_blank" rel="noopener">https://github.com</a>  </p>
+<h2 id="二、开始搭建博客"><a href="#二、开始搭建博客" class="headerlink" title="二、开始搭建博客"></a>二、开始搭建博客</h2><h4 id="1-开启GitHub服务"><a href="#1-开启GitHub服务" class="headerlink" title="1.  开启GitHub服务"></a>1.  开启GitHub服务</h4><p>通过Github Pages获得一个免费使用的域名，这需要我们在Github上新建一个仓库，如下：</p>
+<p><img src="D:\Hexo\myHexoBlog\public\img\hexo.png" alt=""></p>
+<p> 新仓库的名字，最好是是UserName+“github.io”的形式。这也是之前强调的要起一个好的用户名的原因。这样之后我们最后的博客网站的链接就会是：<a href="https://UserName.github.io的形式。" target="_blank" rel="noopener">https://UserName.github.io的形式。</a></p>
+<p>注意：固定新仓库的名字格式并非必须，只是这样操作生成的博客域名比较短小简洁，另起他名生成博客域名会很冗长</p>
+<p>点击Create Repository之后，随后选择Setting进入设置，找到Github Pages如下：</p>
+<p><img src="D:\Hexo\myHexoBlog\public\img\hexo02.png" alt=""></p>
+<p>这里我们需要点击Choose a theme任意选择一个选择主题，然后界面会跳转到仓库，我们看到有两个文件如下：</p>
+<p><img src="D:\Hexo\myHexoBlog\public\img\hexo03.png" alt=""></p>
+<p>再查看setting，我们会看到开启GitHub Pages之后得到的域名如下：</p>
+<p>   <img src="D:\Hexo\myHexoBlog\public\img\hexo05.png" alt=""></p>
+<p>现在，可以使用<a href="https://dreamcoffeezs.github.io/" target="_blank" rel="noopener">https://UserName.github.io</a>，访问自己的博客网站了，打开链接我们会看到默认主题的个人博客样式如下(虽然点丑)：</p>
+<p><img src="D:\Hexo\myHexoBlog\public\img\hexo06.png" alt=""></p>
+<h4 id="2-创建本地博客站点"><a href="#2-创建本地博客站点" class="headerlink" title="2.创建本地博客站点"></a>2.创建本地博客站点</h4><p>   上述的步骤相当于我们使用Github，创建了一个默认的博客页，并且得到了一个可外部访问的域名。但是这个博客页很丑。我们的目的是创建自己个性化的博客网站，所以我们使用Hexo在本地先创建一个本地博客站点，优化后再把它部署到github上。接下来我们使用控制台(cmd)命令在本地一个合适的位置创建博客站点文件夹如下</p>
+<p><strong>hexo init </strong>myHexoBlog <strong>//myHexoBlog**</strong>是项目名**</p>
+<p><img src="D:\Hexo\myHexoBlog\public\img\hexo07.png" alt=""></p>
+<p>测试本地博客站点，在本地博客根目录(git bash)下使用控制台命令：</p>
+<p>hexo g <em>//g**是generetor的缩写，生成博客</em> </p>
+<p>hexo s <em>//s**是server的缩写，启动服务</em></p>
+<p>此时打开浏览器，输入 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>，我们将会看到Hexo自带默认主题显示的博客样式如下:</p>
+<p><img src="D:\Hexo\myHexoBlog\public\img\hexo08.png" alt=""></p>
+<h4 id="3-同步Github-允许公共访问"><a href="#3-同步Github-允许公共访问" class="headerlink" title="3.同步Github,允许公共访问"></a>3.同步Github,允许公共访问</h4><p>初次安装git需要配置用户名和邮箱，否则git会提示：please tell me who you are.</p>
+<p><img src="D:\Hexo\myHexoBlog\public\img\hexo09.png" alt=""></p>
+<p>你需要运行命令来配置你的用户名和邮箱：</p>
+<p>$ git config –global user.name “superGG1990”</p>
+<p>$ git config –global user.email “<a href="mailto:superGG1990@163.com" target="_blank" rel="noopener">superGG1990@163.com</a>“</p>
+<p><strong>注意：（引号内请输入你自己设置的名字，和你自己的邮箱）</strong>此用户名和邮箱是git提交代码时用来显示你身份和联系方式的，并不是github用户名和邮箱</p>
+<h3 id="git配置SSH-Key"><a href="#git配置SSH-Key" class="headerlink" title="git配置SSH Key"></a>git配置SSH Key</h3><p>1、在文件根目录 打开git bash.exe</p>
+<p>2、检查是否已经有SSH Key  <code>$ cd ~/.ssh</code></p>
+<p>3、生成SSH Key  $  ssh-keygen -t rsa -C “youremail”</p>
+<p>第一次生成的话，直接一路回车，不需要输入密码。不是第一次生成的话，会提示</p>
+<p> overwrite (y/n)? 问你是否覆盖旧的 SSH Key ，直接填 y ，然后一直回车就行了，最后得到了两个文件：id_rsa和id_rsa.pub。</p>
+<p><img src="D:\Hexo\myHexoBlog\public\img\hexo10.png" alt=""></p>
+<p> 4、记事本打开/C/Users/Administrator/.ssh/下id_rsa.pub文件，复制该段信息；登录github账户，点击头像进入Settings -&gt; SSH and GPG keys -&gt; New SSH key，将复制的信息粘贴到该处。</p>
+<p> <img src="D:\Hexo\myHexoBlog\public\img\hexo11.png" alt=""></p>
+<p>5、测试是否成功<code>$ssh -T git@github.com</code></p>
+<p>提示“Hi xxx! You’ve successfully authenticated, but GitHub does not provide shell access.”说明添加成功。</p>
+<p>在本地我们已经搭建了博客，但是还只能自己本地访问。若要别人也能看到，那就需要我们将其同步部署到GitHub上了。首先找到我们的博客仓库，并拷贝仓库地址：</p>
+<p> <img src="D:\Hexo\myHexoBlog\public\img\hexo12.png" alt=""></p>
+<p>然后修改本地博客目录的配置：<br> 修改本次博客根目录下的_config.yml文件，修改deploy下的配置如下：</p>
+<p><img src="D:\Hexo\myHexoBlog\public\img\hexo13.png" alt=""></p>
+<p>之后shift+右击选择执行控制台命令(cmd)：</p>
+<p>npm install hexo-deployer-git <em>//**安装部署插件</em></p>
+<p> hexo d <em>//**部署到github</em></p>
+<p>再次访问链接：<a href="https://dreamcoffeezs.github.io/" target="_blank" rel="noopener">https://userName.github.io</a>，就会发现这里的界面和本地的一样了。如此一来我们搭建的个人博客网站就基本完成了。</p>
+<h2 id="二、发布博客"><a href="#二、发布博客" class="headerlink" title="二、发布博客"></a>二、发布博客</h2><p> 可以发布自己的第一篇博客了。来尝试一下以下的步骤：<br> 在本地博客文件夹根目录(git bash)输入：</p>
+<p>hexo new “我个人博客的第一篇博客” </p>
+<p>hexo g <em>//**生成网页</em> </p>
+<p>hexo d <em>//**部署到远端(github)</em></p>
+<p><img src="D:\Hexo\myHexoBlog\public\img\hexo17.png" alt=""></p>
+<p>现在打开我们的博客网站：<a href="http://username.github.io/" target="_blank" rel="noopener">http://UserName.github.io</a>,会看到网页</p>
+<p>（显示可能有延迟 所以可以采用以下方法(git bash)：</p>
+<p> hexo clean <em>//**清理缓存</em> </p>
+<p>hexo g <em>//**重新生成博客代码</em> </p>
+<p>hexo d <em>//**部署到本地</em></p>
+<p><em>顺便一提</em> <em>hexo s</em> <em>启动本地服务器，用于预览</em>(这里可以不用加上了)直接访问<a href="https://dreamcoffeezs.github.io/" target="_blank" rel="noopener">https://userName.github.io</a></p>
+<h4 id="可以写好-md文件然后把它放到source文件夹下"><a href="#可以写好-md文件然后把它放到source文件夹下" class="headerlink" title="可以写好.md文件然后把它放到source文件夹下"></a>可以写好.md文件然后把它放到source文件夹下</h4><h5 id="然后"><a href="#然后" class="headerlink" title="然后"></a>然后</h5><p> hexo clean <em>//**清理缓存</em> </p>
+<p>hexo g <em>//**重新生成博客代码</em> </p>
+<p>hexo d <em>//**部署到本地</em></p>
+<h2 id="四、更换主题"><a href="#四、更换主题" class="headerlink" title="四、更换主题"></a>四、更换主题</h2><p>为了让它看起来更美观一些，我们可以为其更换主题（当然也可以自己在默认主</p>
+<p>题下自己编写美化博客界面）。这里以使用github上的next主题为例：</p>
+<h4 id="1-创建next文件夹"><a href="#1-创建next文件夹" class="headerlink" title="1.创建next文件夹"></a>1.创建next文件夹</h4><p>切换到本地博客根目录下，在主题文件thems下创建一个新文件夹next存放即将下载的next主题(git bash)</p>
+<p>$ git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a> themes/next</p>
+<p>也可以直接找到相应的文件夹创建</p>
+<p><em>//**下载主题</em></p>
+<p> 下载成之后我们会看到next的主题已经存在thems里了如下：</p>
+<p><img src="D:\Hexo\myHexoBlog\public\img\hexo14.png" alt=""></p>
+<h4 id="3-修改博客配置文件，更换主题配置"><a href="#3-修改博客配置文件，更换主题配置" class="headerlink" title="3.修改博客配置文件，更换主题配置"></a>3.修改博客配置文件，更换主题配置</h4><p>修改博客根目录(不是next主题)下的_config.yml文件，搜索theme字段，并将其值修改为next</p>
+<p><img src="D:\Hexo\myHexoBlog\public\img\hexo15.png" alt=""></p>
+<p>然后在控制台（git bash）下输入如下命令：</p>
+<p> hexo clean <em>//**清理缓存</em></p>
+<p> hexo g <em>//**重新生成博客代码</em> </p>
+<p>hexo d <em>//**部署到本地</em></p>
+<p>再次打开我们的博客网站<a href="https://dreamcoffeezs.github.io/" target="_blank" rel="noopener">https://UserName.github.io</a>，将会看到更换主题后</p>
+<p>   <img src="D:\Hexo\myHexoBlog\public\img\hexo16.png" alt=""></p>
+<p>更多主题美化：</p>
+<p><a href="https://blog.csdn.net/qq_32454537/article/details/79482896" target="_blank" rel="noopener">https://blog.csdn.net/qq_32454537/article/details/79482896</a></p>
+<h4 id="1-了解Hexo-1"><a href="#1-了解Hexo-1" class="headerlink" title="1.了解Hexo"></a>1.了解Hexo</h4><p>   <a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">Hexo</a>是高效的静态站点生成框架，她基于Node.js。   通过 Hexo 你可以使用        Markdown 编写文章   </p>
+<h4 id="1-了解Hexo-2"><a href="#1-了解Hexo-2" class="headerlink" title="1.了解Hexo"></a>1.了解Hexo</h4><p>   <a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">Hexo</a>是高效的静态站点生成框架，她基于Node.js。   通过 Hexo 你可以使用        Markdown 编写文章   </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/09/使用Hexo和Git搭建个人博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Typescript入门01" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/09/Typescript入门01/">Typescript入门</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/09/Typescript入门01/" class="archive-article-date">
+  	<time datetime="2018-12-09T12:37:26.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Typescript入门"><a href="#Typescript入门" class="headerlink" title="Typescript入门"></a>Typescript入门</h1><h2 id="什么是ts"><a href="#什么是ts" class="headerlink" title="什么是ts:"></a>什么是ts:</h2><p>ES的超集，可以转换成ES5，ES3的代码 —–兼容好</p>
+<p>类型化降本语言—-静态类语言—提高开发效率—增强了代码的质量</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="线上开发"><a href="#线上开发" class="headerlink" title="线上开发"></a>线上开发</h3><h3 id="手动搭建环境"><a href="#手动搭建环境" class="headerlink" title="手动搭建环境"></a>手动搭建环境</h3><p>安装typescript编译器</p>
+<p>自动化构建工具gulp</p>
+<h4 id="步骤：查看typeScript中文网的辅助教程"><a href="#步骤：查看typeScript中文网的辅助教程" class="headerlink" title="步骤：查看typeScript中文网的辅助教程"></a>步骤：查看typeScript中文网的辅助教程</h4><h5 id="简单流程如下"><a href="#简单流程如下" class="headerlink" title="简单流程如下"></a>简单流程如下</h5><p>1）首先全局安装TypeScript和Gulp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install -g typescript</span><br><span class="line"></span><br><span class="line">npm intall gulp --global(如果以前按过就不用安了)</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line"></span><br><span class="line">npm install -g gulp-cli</span><br></pre></td></tr></table></figure>
+<p>2）安装<code>typescript</code>，<code>gulp</code>和<code>gulp-typescript</code>到开发依赖项。 <a href="https://www.npmjs.com/package/gulp-typescript" target="_blank" rel="noopener">Gulp-typescript</a>是TypeScript的一个Gulp插件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev typescript gulp gulp-typescript</span><br></pre></td></tr></table></figure>
+<p>3）安装Browserify，<a href="https://www.npmjs.com/package/tsify" target="_blank" rel="noopener">tsify</a>和vinyl-source-stream。 tsify是Browserify的一个插件，就像gulp-typescript一样，它能够访问TypeScript编译器。 vinyl-source-stream会将Browserify的输出文件适配成gulp能够解析的格式，它叫做<a href="https://github.com/gulpjs/vinyl" target="_blank" rel="noopener">vinyl</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev browserify tsify vinyl-source-stream</span><br></pre></td></tr></table></figure>
+<p>注：browserify:把所有模块捆绑成一个JavaScript文件</p>
+<p>​       tsify是Browserify的一个插件，就像gulp-typescript一样，它能够访问TypeScript编译器</p>
+<h3 id="gulpfile-js"><a href="#gulpfile-js" class="headerlink" title="gulpfile.js"></a>gulpfile.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&quot;gulp&quot;);</span><br><span class="line">var browserify = require(&quot;browserify&quot;);</span><br><span class="line">var source = require(&apos;vinyl-source-stream&apos;);</span><br><span class="line">var tsify = require(&quot;tsify&quot;);</span><br><span class="line">var uglify = require(&apos;gulp-uglify-cli&apos;);</span><br><span class="line">gulp.task(&quot;copy-html&quot;, function () &#123;</span><br><span class="line">    return gulp.src(&quot;./src/**/*.html&quot;)</span><br><span class="line">        .pipe(gulp.dest(&quot;./dist&quot;));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&quot;default&quot;, [&quot;copy-html&quot;], function () &#123;</span><br><span class="line">    return browserify(&#123;</span><br><span class="line">        entries: [&apos;./src/app.ts&apos;],</span><br><span class="line">    &#125;)  //把所有模块捆绑成一个JavaScript文件</span><br><span class="line">    .plugin(tsify)    //能够访问TypeScript编译器</span><br><span class="line">    .bundle()             </span><br><span class="line">    .pipe(source(&apos;bundle.js&apos;))</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(&quot;./dist&quot;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="src-ajax-ts"><a href="#src-ajax-ts" class="headerlink" title="src/ajax.ts"></a>src/ajax.ts</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">export module ajax&#123;</span><br><span class="line">    export class Person&#123;</span><br><span class="line">        constructor(public name:string,public age:number)&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        sayHai()&#123;</span><br><span class="line">            console.log(&quot;你好&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="src-app-ts"><a href="#src-app-ts" class="headerlink" title="src/app.ts"></a>src/app.ts</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123;ajax&#125; from &apos;./ajax&apos;</span><br><span class="line">let person =new ajax.Person(&quot;张三&quot;,12);</span><br><span class="line">person.sayHai();</span><br></pre></td></tr></table></figure>
+<h3 id="src-index-html"><a href="#src-index-html" class="headerlink" title="src/index.html"></a>src/index.html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;./bundle.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="package-json-可以根据这个文件夹npm-install-全部的下载所需的插件"><a href="#package-json-可以根据这个文件夹npm-install-全部的下载所需的插件" class="headerlink" title="package.json  可以根据这个文件夹npm install 全部的下载所需的插件"></a>package.json  可以根据这个文件夹npm install 全部的下载所需的插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;ts&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;pagefile.js&quot;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;keywords&quot;: [],</span><br><span class="line">  &quot;author&quot;: &quot;&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;browserify&quot;: &quot;^16.2.3&quot;,</span><br><span class="line">    &quot;gulp&quot;: &quot;^3.9.1&quot;,</span><br><span class="line">    &quot;gulp-typescript&quot;: &quot;^5.0.0&quot;,</span><br><span class="line">    &quot;gulp-uglify-cli&quot;: &quot;^1.0.1&quot;,</span><br><span class="line">    &quot;tsify&quot;: &quot;^4.0.1&quot;,</span><br><span class="line">    &quot;typescript&quot;: &quot;^3.2.2&quot;,</span><br><span class="line">    &quot;uglify&quot;: &quot;^0.1.5&quot;,</span><br><span class="line">    &quot;vinyl-source-stream&quot;: &quot;^2.0.0&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/09/Typescript入门01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ES6的新特性十一-模块" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/09/ES6的新特性十一-模块/">ES6的新特性十一-模块</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/09/ES6的新特性十一-模块/" class="archive-article-date">
+  	<time datetime="2018-12-09T11:23:03.960Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ES6的新特性十一-模块"><a href="#ES6的新特性十一-模块" class="headerlink" title="ES6的新特性十一-模块"></a>ES6的新特性十一-模块</h1><h2 id="模块化的实现"><a href="#模块化的实现" class="headerlink" title="模块化的实现"></a>模块化的实现</h2><h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>AMD 即<code>Asynchronous Module Definition</code>，中文名是<strong>异步模块定义</strong>的意思。它是一个在浏览器端模块化开发的规范</p>
+<p>由于不是JavaScript原生支持，使用AMD规范进行页面开发需要用到对应的库函数，也就是大名鼎鼎<code>RequireJS</code>，实际上AMD 是 RequireJS 在推广过程中对模块定义的规范化的产出</p>
+<p>requireJS主要解决两个问题</p>
+<ol>
+<li>多个js文件可能有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器</li>
+<li>js加载的时候浏览器会停止页面渲染，加载文件越多，页面失去响应时间越长</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">define(id?, dependencies?, factory);</span><br><span class="line">id：可选参数，用来定义模块的标识，如果没有提供该参数，脚本文件名（去掉拓展名）</span><br><span class="line">dependencies：是一个当前模块依赖的模块名称数组</span><br><span class="line">factory：工厂方法，模块初始化要执行的函数或对象。如果为函数，它应该只被执行一次。如果是对象，此对象应该为模块的输出值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">require()函数接受两个参数</span><br><span class="line">第一个参数是一个数组，表示所依赖的模块</span><br><span class="line">第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块</span><br></pre></td></tr></table></figure>
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><h4 id="common-js"><a href="#common-js" class="headerlink" title="common.js"></a>common.js</h4><p>export</p>
+<p>require</p>
+<h2 id="ES6实现"><a href="#ES6实现" class="headerlink" title="ES6实现"></a>ES6实现</h2><h3 id="export"><a href="#export" class="headerlink" title="export"></a>export</h3><h4 id="import"><a href="#import" class="headerlink" title="import"></a>import</h4><p>注：文本即模块</p>
+<p>浏览器无法直接使用exprot 和import 通过babel转换</p>
+<p>babel： ES6转ES5</p>
+<h2 id="具体做法"><a href="#具体做法" class="headerlink" title="具体做法"></a>具体做法</h2><h4 id="GIt-BASH指令"><a href="#GIt-BASH指令" class="headerlink" title="GIt BASH指令"></a>GIt BASH指令</h4><p>1、项目初始化<br>    npm init –y</p>
+<p>2、安装本地gulp<br>    npm install gulp –save-dev</p>
+<p>3、安装babel与babelify<br>    npm install –save-dev babelify @babel/core<br>    npm install –save-dev @babel/preset-env @babel/preset-react</p>
+<p>4、安装打包插件browserify<br>    npm install browserify –save-dev</p>
+<p>5、安装打包辅助插件vinyl-source-stream<br>    npm install vinyl-source-stream –save-dev</p>
+<p>6、编写脚本打包任务<br>    gulp.task(‘script’ , function(){<br>            let b = browerify({<br>                entries:’./src/js/app.js’,<br>                transform:babelify.configure({<br>                        presets: [“@babel/preset-env”, “@babel/preset-react”]<br>                })<br>            });</p>
+<pre><code>b.bundle()
+ .pipe(source(&apos;bundle.js&apos;))
+ .pipe(gulp.dest(&apos;dist/js/&apos;));
+</code></pre><p>});<br>    注：可以添加脚本压缩</p>
+<h4 id="gulpfile-js"><a href="#gulpfile-js" class="headerlink" title="gulpfile.js"></a>gulpfile.js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line"></span><br><span class="line">var babelify = require(&apos;babelify&apos;);</span><br><span class="line">var browserfiy = require(&apos;browserify&apos;);</span><br><span class="line">var source = require(&apos;vinyl-source-stream&apos;);</span><br><span class="line">var uglify = require(&apos;gulp-uglify-cli&apos;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;html&apos; , function()&#123;</span><br><span class="line">    gulp.src(&apos;./src/index.html&apos;)</span><br><span class="line">    .pipe(gulp.dest(&apos;./dist/&apos;));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;script&apos; , function()&#123;</span><br><span class="line">    browserfiy(&#123;</span><br><span class="line">        entries:[&apos;./src/js/app.js&apos;]</span><br><span class="line">    &#125;)</span><br><span class="line">    .transform(babelify.configure(&#123;</span><br><span class="line">        presets: [&quot;@babel/preset-env&quot;, &quot;@babel/preset-react&quot;]</span><br><span class="line">    &#125;))</span><br><span class="line">    .bundle()</span><br><span class="line">    .pipe(source(&apos;bundle.js&apos;))</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(&apos;./dist/js/&apos;));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;default&apos; , [&apos;html&apos; , &apos;script&apos;] , function()&#123;</span><br><span class="line">    gulp.watch(&apos;./src/js/*.js&apos; , [&apos;script&apos;]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="ajax-js"><a href="#ajax-js" class="headerlink" title="ajax.js"></a>ajax.js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var value = 100;</span><br><span class="line"></span><br><span class="line">const URL_ROOT = &apos;http://&apos;;      // 导出常量</span><br><span class="line"></span><br><span class="line">function getJson()&#123;              //  导出函数</span><br><span class="line">    console.log(&apos;函数&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Person&#123;</span><br><span class="line">    constructor(name)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    sayHi()&#123;</span><br><span class="line">        console.log(&apos;类&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">export &#123;URL_ROOT , getJson, Person&#125;</span><br><span class="line">// export default &#123;URL_ROOT , getJson , Person&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123;URL_ROOT , Person ,getJson&#125; from &apos;./ajax&apos;;</span><br><span class="line">console.log(URL_ROOT);</span><br><span class="line">getJson();</span><br><span class="line">new Person().sayHi();</span><br><span class="line"></span><br><span class="line">// import ajax from &apos;./ajax&apos;;</span><br><span class="line"></span><br><span class="line">// console.log(ajax.URL_ROOT);</span><br><span class="line">// ajax.getJson();</span><br><span class="line">// let person = new ajax.Person();</span><br><span class="line">// person.sayHi();</span><br></pre></td></tr></table></figure>
+<h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;js/bundle.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/09/ES6的新特性十一-模块/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ES6新特性九iterator迭代器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -395,445 +1119,9 @@
 
 
   
-    <article id="post-ES6的新特性六-内置对象" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/07/ES6的新特性六-内置对象/">ES6的新特性六内置对象</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/07/ES6的新特性六-内置对象/" class="archive-article-date">
-  	<time datetime="2018-12-07T11:54:22.720Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="ES6新特性：内置对象"><a href="#ES6新特性：内置对象" class="headerlink" title="ES6新特性：内置对象"></a>ES6新特性：内置对象</h1><h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><h3 id="简洁写法"><a href="#简洁写法" class="headerlink" title="简洁写法"></a>简洁写法</h3><h4 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h4><h5 id="成员名和成员值都来自一个变量的时"><a href="#成员名和成员值都来自一个变量的时" class="headerlink" title="成员名和成员值都来自一个变量的时"></a>成员名和成员值都来自一个变量的时</h5><h5 id="方法省略function"><a href="#方法省略function" class="headerlink" title="方法省略function"></a>方法省略function</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let name=&quot;张山&quot;;</span><br><span class="line">let age=&quot;12&quot;;</span><br><span class="line"></span><br><span class="line">let person=&#123;</span><br><span class="line">    name;</span><br><span class="line">    age;</span><br><span class="line">    sayHi()&#123;</span><br><span class="line">        console.log(&quot;你好&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.sayHi();</span><br></pre></td></tr></table></figure>
-<p>扩展方法：静态方法  获取对象的成员Object.entries(),Object.keys(),Object.values()</p>
-<h3 id="案例二"><a href="#案例二" class="headerlink" title="案例二"></a>案例二</h3><h4 id="for-in循环遍历对象无法遍历【symbol-for-】定义的成员名"><a href="#for-in循环遍历对象无法遍历【symbol-for-】定义的成员名" class="headerlink" title="for-in循环遍历对象无法遍历【symbol.for()】定义的成员名"></a>for-in循环遍历对象无法遍历【symbol.for()】定义的成员名</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">let name = &apos;Rose&apos;;</span><br><span class="line">let age = 18;</span><br><span class="line"></span><br><span class="line">let person = &#123;</span><br><span class="line">    name:name,</span><br><span class="line">    age,</span><br><span class="line">    sayHi()&#123;</span><br><span class="line">        console.log(this.name);</span><br><span class="line">    &#125;,</span><br><span class="line">    [Symbol.for(&apos;KeyA&apos;)]:function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for(let value in person)&#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var keys = Object.getOwnPropertySymbols(person);</span><br><span class="line">console.log(keys)---&gt;[Symbol(KeyA)]</span><br><span class="line">//结果</span><br><span class="line">name</span><br><span class="line">age</span><br><span class="line">sayHi</span><br></pre></td></tr></table></figure>
-<h3 id="案例三"><a href="#案例三" class="headerlink" title="案例三"></a>案例三</h3><h4 id="用for-of遍历对象的时候会出错：person-is-not-iterable"><a href="#用for-of遍历对象的时候会出错：person-is-not-iterable" class="headerlink" title="用for-of遍历对象的时候会出错：person is not iterable"></a>用for-of遍历对象的时候会出错：person is not iterable</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let name = &apos;Rose&apos;;</span><br><span class="line">let age = 18;</span><br><span class="line">let person = &#123;</span><br><span class="line">    name:name,</span><br><span class="line">    age,</span><br><span class="line">    sayHi()&#123;</span><br><span class="line">        console.log(this.name);</span><br><span class="line">    &#125;,</span><br><span class="line">    [Symbol.for(&apos;KeyA&apos;)]:function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">for(let value of person)&#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="案例四"><a href="#案例四" class="headerlink" title="案例四"></a>案例四</h3><h4 id="解决for-of无法遍历对象的方法：Object-entries"><a href="#解决for-of无法遍历对象的方法：Object-entries" class="headerlink" title="解决for-of无法遍历对象的方法：Object.entries()"></a>解决for-of无法遍历对象的方法：Object.entries()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let name = &apos;Rose&apos;;</span><br><span class="line">let age = 18;</span><br><span class="line">let person = &#123;</span><br><span class="line">    name:name,</span><br><span class="line">    age,</span><br><span class="line">    sayHi()&#123;</span><br><span class="line">        console.log(this.name);</span><br><span class="line">    &#125;,</span><br><span class="line">    [Symbol.for(&apos;KeyA&apos;)]:function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">for(let [key,value] of Object.entries(person))&#123;</span><br><span class="line">    console.log(key,value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="案例五"><a href="#案例五" class="headerlink" title="案例五"></a>案例五</h3><h4 id="Object-keys-对象-获取对象的属性名集合"><a href="#Object-keys-对象-获取对象的属性名集合" class="headerlink" title="Object.keys(对象)获取对象的属性名集合"></a>Object.keys(对象)获取对象的属性名集合</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">let name = &apos;Rose&apos;;</span><br><span class="line">let age = 18;</span><br><span class="line">let person = &#123;</span><br><span class="line">    name:name,</span><br><span class="line">    age,</span><br><span class="line">    sayHi()&#123;</span><br><span class="line">        console.log(this.name);</span><br><span class="line">    &#125;,</span><br><span class="line">    [Symbol.for(&apos;KeyA&apos;)]:function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let keys = Object.keys(person);</span><br><span class="line">console.log(keys)------------&gt;[&quot;name&quot;, &quot;age&quot;, &quot;sayHi&quot;]</span><br><span class="line">for(let key of keys)&#123;</span><br><span class="line">    console.log(key , person[key]);</span><br><span class="line">&#125;</span><br><span class="line">//结果</span><br><span class="line">name Rose</span><br><span class="line">age 18</span><br><span class="line">sayHi ƒ sayHi()&#123;</span><br><span class="line">        console.log(this.name);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="案例六"><a href="#案例六" class="headerlink" title="案例六"></a>案例六</h3><h4 id="Object-values-对象-获取属性值得集合"><a href="#Object-values-对象-获取属性值得集合" class="headerlink" title="Object.values(对象)获取属性值得集合"></a>Object.values(对象)获取属性值得集合</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let name = &apos;Rose&apos;;</span><br><span class="line">let age = 18;</span><br><span class="line">let person = &#123;</span><br><span class="line">    name:name,</span><br><span class="line">    age,</span><br><span class="line">    sayHi()&#123;</span><br><span class="line">        console.log(this.name);</span><br><span class="line">    &#125;,</span><br><span class="line">    [Symbol.for(&apos;KeyA&apos;)]:function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">console.warn(&apos;&apos;);</span><br><span class="line">let values = Object.values(person);</span><br><span class="line">for(let value of values)&#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="案例七"><a href="#案例七" class="headerlink" title="案例七"></a>案例七</h3><h4 id="Object-assign-复制或者合并对象：注浅克隆"><a href="#Object-assign-复制或者合并对象：注浅克隆" class="headerlink" title="Object.assign:复制或者合并对象：注浅克隆"></a>Object.assign:复制或者合并对象：注浅克隆</h4><p>浅克隆只是针对对象，数组函数等复杂的数据</p>
-<p>简单的来说浅克隆就是说两个变量指向同一块内存，一个变另一个也变</p>
-<p>深克隆就是创建一个新的对象，开辟一个新的空间，然后将原对象的数据全部复制过去，完全的切断两个对象之间的联系。</p>
-<h3 id="es5代码实现深克隆"><a href="#es5代码实现深克隆" class="headerlink" title="es5代码实现深克隆"></a>es5代码实现深克隆</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">let person = &#123;</span><br><span class="line">    name:&apos;Rose&apos;,</span><br><span class="line">    address:&#123;</span><br><span class="line">        province:&apos;江苏&apos;,</span><br><span class="line">        city:&apos;无锡&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    sayHi()&#123;</span><br><span class="line">        console.log(this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let jsonString =  JSON.stringify(person);</span><br><span class="line">let clonePerson = JSON.parse(jsonString);</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">console.warn(&apos;原始值&apos;);</span><br><span class="line">console.log(person , clonePerson);</span><br><span class="line"></span><br><span class="line">clonePerson.name = &apos;mike&apos;;</span><br><span class="line"></span><br><span class="line">clonePerson.address.city = &apos;苏州&apos;;</span><br><span class="line"></span><br><span class="line">console.warn(&apos;修改后&apos;);</span><br><span class="line">console.log(person , clonePerson);</span><br></pre></td></tr></table></figure>
-<h3 id="es6-Object-assgin"><a href="#es6-Object-assgin" class="headerlink" title="es6.Object.assgin"></a>es6.Object.assgin</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">let person = &#123;</span><br><span class="line">      name:&apos;Rose&apos;,</span><br><span class="line">      address:&#123;</span><br><span class="line">          province:&apos;江苏&apos;,</span><br><span class="line">          city:&apos;无锡&apos;</span><br><span class="line">      &#125;,</span><br><span class="line">      sayHi()&#123;</span><br><span class="line">          console.log(this.name);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">var clonePerson = &#123;</span><br><span class="line">     age:100</span><br><span class="line"> &#125;;</span><br><span class="line"></span><br><span class="line"> Object.assign(clonePerson , person);</span><br><span class="line"></span><br><span class="line"> console.warn(&apos;原始值&apos;);</span><br><span class="line"> console.log(person , clonePerson);</span><br><span class="line"></span><br><span class="line"> clonePerson.name = &apos;mike&apos;;</span><br><span class="line"> clonePerson.address.city = &apos;苏州&apos;;</span><br><span class="line"> console.warn(&apos;修改后&apos;);</span><br><span class="line"> console.log(person , clonePerson);</span><br></pre></td></tr></table></figure>
-<p>#### </p>
-<h1 id="集合扩展"><a href="#集合扩展" class="headerlink" title="集合扩展"></a>集合扩展</h1><h2 id="array扩展"><a href="#array扩展" class="headerlink" title="array扩展"></a>array扩展</h2><h2 id="Array静态方法："><a href="#Array静态方法：" class="headerlink" title="Array静态方法："></a>Array静态方法：</h2><h3 id="Array-isArray-判断是否是数组"><a href="#Array-isArray-判断是否是数组" class="headerlink" title="Array.isArray:判断是否是数组"></a>Array.isArray:判断是否是数组</h3><h4 id="数组判断的几种方法"><a href="#数组判断的几种方法" class="headerlink" title="数组判断的几种方法"></a>数组判断的几种方法</h4><pre><code>console.log(Array.isArray([]));
-console.log([] instanceof Array);
-console.log(Object.prototype.toString.call([]) === &apos;[object Array]&apos;);
-console.log([].constructor === Array); 
-</code></pre><h4 id="Array-of创建数组-new-Array-一个整数"><a href="#Array-of创建数组-new-Array-一个整数" class="headerlink" title="Array.of创建数组 new Array(一个整数)"></a>Array.of创建数组 new Array(一个整数)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let arr = new Array(6);</span><br><span class="line">let arr2 = Array.of(6);</span><br><span class="line">console.log(arr , arr2);</span><br><span class="line">结果</span><br><span class="line">Array(6)----&gt;表示数组长度为6，但是没有值</span><br><span class="line">Array(1)-----&gt;有一个具体的值，而且长度为1</span><br></pre></td></tr></table></figure>
-<h4 id="Array-from-克隆或者合并数组——浅克隆"><a href="#Array-from-克隆或者合并数组——浅克隆" class="headerlink" title="Array.from:克隆或者合并数组——浅克隆"></a>Array.from:克隆或者合并数组——浅克隆</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var arr = [10 , 20 , 30 , [40 , 50]];</span><br><span class="line"></span><br><span class="line">var cloneArr = Array.from(arr);</span><br><span class="line"></span><br><span class="line">console.warn(&apos;&apos;);</span><br><span class="line">console.log(arr , cloneArr);</span><br><span class="line"></span><br><span class="line">//改变数组中的值但是cloneArr不会发生改变</span><br><span class="line">cloneArr[3][1] = 500;</span><br><span class="line"></span><br><span class="line">console.warn(&apos;&apos;);</span><br><span class="line">console.log(arr , cloneArr);</span><br></pre></td></tr></table></figure>
-<h2 id="Array实例方法"><a href="#Array实例方法" class="headerlink" title="Array实例方法"></a>Array实例方法</h2><h3 id="arr-filter-过滤数组中的数据类似于sql中where"><a href="#arr-filter-过滤数组中的数据类似于sql中where" class="headerlink" title="arr.filter()过滤数组中的数据类似于sql中where"></a>arr.filter()过滤数组中的数据类似于sql中where</h3><h4 id="得到结果是一组满足条件的数组即"><a href="#得到结果是一组满足条件的数组即" class="headerlink" title="得到结果是一组满足条件的数组即"></a>得到结果是一组满足条件的数组即</h4><h4 id="let-arr2-arr-filter-function-item-return-item-gt-74"><a href="#let-arr2-arr-filter-function-item-return-item-gt-74" class="headerlink" title="let arr2=arr.filter(function(item){ return item&gt;74})"></a>let arr2=arr.filter(function(item){ return item&gt;74})</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let arr = [52 , 34 , 24 , 89 , 64 , 48 , 64];</span><br><span class="line"></span><br><span class="line"> let index = arr.indexOf(64);</span><br><span class="line"> console.log(index);--&gt;4</span><br><span class="line"> //得到一组满足条件的数组</span><br><span class="line"> let rs = arr.filter((item) =&gt; item &gt; 34);</span><br><span class="line"> console.log(rs);---&gt;[52, 89, 64, 48, 64]</span><br><span class="line"> //es6新增的findindex方法用来查询满足条件的一个内容，但是只是返回下标</span><br><span class="line"> </span><br><span class="line"> let index2 = arr.findIndex((item) =&gt; item == 74);</span><br><span class="line"> console.log(index2);--&gt;-1</span><br><span class="line"> //查看数组中是否包含指定的内容</span><br><span class="line">  let flag = arr.includes(64);</span><br><span class="line">  console.log(flag);-----&gt;true</span><br></pre></td></tr></table></figure>
-<h4 id="现在我们思考一个问题：如果面试的时候，面试官让你快速的实现将数组去重，你会怎么处理"><a href="#现在我们思考一个问题：如果面试的时候，面试官让你快速的实现将数组去重，你会怎么处理" class="headerlink" title="现在我们思考一个问题：如果面试的时候，面试官让你快速的实现将数组去重，你会怎么处理"></a>现在我们思考一个问题：如果面试的时候，面试官让你快速的实现将数组去重，你会怎么处理</h4><h4 id="初学者肯定想用for循环的方法一个一个的遍历，然后对比，将满足条件的值放到另一个数组中，这样可以实现面试官的问题，但是你绝对没有满足面试官的想法，"><a href="#初学者肯定想用for循环的方法一个一个的遍历，然后对比，将满足条件的值放到另一个数组中，这样可以实现面试官的问题，但是你绝对没有满足面试官的想法，" class="headerlink" title="初学者肯定想用for循环的方法一个一个的遍历，然后对比，将满足条件的值放到另一个数组中，这样可以实现面试官的问题，但是你绝对没有满足面试官的想法，"></a>初学者肯定想用for循环的方法一个一个的遍历，然后对比，将满足条件的值放到另一个数组中，这样可以实现面试官的问题，但是你绝对没有满足面试官的想法，</h4><h3 id="Es6Array新增了set方法可以实现这个功能"><a href="#Es6Array新增了set方法可以实现这个功能" class="headerlink" title="Es6Array新增了set方法可以实现这个功能"></a>Es6Array新增了set方法可以实现这个功能</h3><h4 id="1-创建一个new-Set-数组"><a href="#1-创建一个new-Set-数组" class="headerlink" title="1)创建一个new Set(数组);"></a>1)创建一个new Set(数组);</h4><h4 id="2-存储数组add"><a href="#2-存储数组add" class="headerlink" title="2)存储数组add"></a>2)存储数组add</h4><h4 id="3-移除数组delete-clear"><a href="#3-移除数组delete-clear" class="headerlink" title="3)移除数组delete(),clear()"></a>3)移除数组delete(),clear()</h4><h4 id="4-遍历for-of"><a href="#4-遍历for-of" class="headerlink" title="4)遍历for-of"></a>4)遍历for-of</h4><h4 id="案例如下"><a href="#案例如下" class="headerlink" title="案例如下"></a>案例如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let arr = [70 , 60 , 10 , 20 , 30 , 60 , 20 , 30];</span><br><span class="line">let set = new Set(arr);</span><br><span class="line">console.log(set)---------&gt;&#123;70, 60, 10, 20, 30&#125;</span><br><span class="line">for(let value of set)&#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="存储数据add-当添加的数据和数组中其他数据一样时，不添加此数值"><a href="#存储数据add-当添加的数据和数组中其他数据一样时，不添加此数值" class="headerlink" title="存储数据add 当添加的数据和数组中其他数据一样时，不添加此数值"></a>存储数据add 当添加的数据和数组中其他数据一样时，不添加此数值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">let set = new Set();</span><br><span class="line"></span><br><span class="line">set.add(10);</span><br><span class="line">set.add(true);</span><br><span class="line">set.add(null);</span><br><span class="line">set.add(&quot;字符串&quot;);</span><br><span class="line">  </span><br><span class="line">console.warn(&apos;&apos;);</span><br><span class="line">for(let value of set)&#123;</span><br><span class="line">    console.log(value);-----&gt;10,true,null</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">set.add(10);</span><br><span class="line">set.add(null);</span><br><span class="line">set.add(&#123;&#125;);</span><br><span class="line"></span><br><span class="line">console.warn(&apos;&apos;);</span><br><span class="line">for(let value of set)&#123;</span><br><span class="line">    console.log(value);--------》10,true,null，&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="清除数组delete-和clear-delete是清除指定的数据而且对象数据去不了"><a href="#清除数组delete-和clear-delete是清除指定的数据而且对象数据去不了" class="headerlink" title="清除数组delete 和clear,delete是清除指定的数据而且对象数据去不了"></a>清除数组delete 和clear,delete是清除指定的数据而且对象数据去不了</h4><h4 id="clear是清空set"><a href="#clear是清空set" class="headerlink" title="clear是清空set"></a>clear是清空set</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let arr=[10,null,&#123;&#125;];</span><br><span class="line">set.delete(10);</span><br><span class="line">set.delete(&#123;&#125;);</span><br><span class="line">console.warn(&apos;&apos;);</span><br><span class="line">for(let value of set)&#123;</span><br><span class="line">    console.log(value);-----&gt;null,&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">set.clear();</span><br><span class="line">console.log(set);------------&gt;Set(0) &#123;&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Map-键和值的集合（key-value"><a href="#Map-键和值的集合（key-value" class="headerlink" title="Map:键和值的集合（key:value)"></a>Map:键和值的集合（key:value)</h2><h4 id="注：1）key不可以重复，2）object的key只能为string，但是map的key可以是任意的类型"><a href="#注：1）key不可以重复，2）object的key只能为string，但是map的key可以是任意的类型" class="headerlink" title="注：1）key不可以重复，2）object的key只能为string，但是map的key可以是任意的类型"></a>注：1）key不可以重复，2）object的key只能为string，但是map的key可以是任意的类型</h4><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>1）创建Map:new Map()</p>
-<p>​                       new Map([key,value])</p>
-<p>2)操作：a)创建数据：map.set（key,value)   key和value可以是任意的类型，key不可以重复</p>
-<p>​              b)读取数据 : map.get(key)  如果key不存在，返回undefined</p>
-<p>​              c)移除数据 : map.delete(key), key为引用类型的时候和set.delete一样都移除不了</p>
-<p>​              d)清空数据： map.clear()</p>
-<p>​              e)可以用for-of遍历 for（let [key,value] of map){}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">let map = new Map();</span><br><span class="line"></span><br><span class="line"> map.set(10 , &quot;Value&quot;);</span><br><span class="line"> map.set(&apos;Value&apos; , 10);</span><br><span class="line"> map.set(true , &#123;&#125;);</span><br><span class="line"> map.set(&#123;&#125; , true);</span><br><span class="line"> map.set(null , []);</span><br><span class="line"> map.set(null , &quot;????&quot;);</span><br><span class="line"> map.set(true , &apos;boolean&apos;);</span><br><span class="line"></span><br><span class="line"> console.warn(&apos;&apos;);</span><br><span class="line"> for(let [key , value] of map)&#123;</span><br><span class="line">     console.log(key , value);</span><br><span class="line"> &#125;</span><br><span class="line"> console.warn(&apos;&apos;);</span><br><span class="line"> console.log(map.get(null));</span><br><span class="line"> console.log(map.get(&apos;&apos;));</span><br><span class="line"></span><br><span class="line"> map.delete(null);</span><br><span class="line"> map.delete(&#123;&#125;);</span><br><span class="line"> console.warn(&apos;&apos;);</span><br><span class="line"> for(let [key , value] of map)&#123;</span><br><span class="line">     console.log(key , value);</span><br><span class="line"> &#125;</span><br><span class="line"> map.clear();</span><br></pre></td></tr></table></figure>
-<h2 id="String新添加的方法"><a href="#String新添加的方法" class="headerlink" title="String新添加的方法"></a>String新添加的方法</h2><p>startWiths,endWiths,include</p>
-<h2 id="Number新添加的方法"><a href="#Number新添加的方法" class="headerlink" title="Number新添加的方法"></a>Number新添加的方法</h2><p>isInteger</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/07/ES6的新特性六-内置对象/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ES6的新特性五-函数" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/07/ES6的新特性五-函数/">ES6的新特性五函数</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/07/ES6的新特性五-函数/" class="archive-article-date">
-  	<time datetime="2018-12-07T11:29:55.703Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><h2 id="参数列表-gt-语句"><a href="#参数列表-gt-语句" class="headerlink" title="(参数列表)=&gt;语句"></a>(参数列表)=&gt;语句</h2><h3 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//es5中的函数写法</span><br><span class="line">var add = function(a , b)&#123;</span><br><span class="line">    var result = a + b;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> //es6中的函数新的写法</span><br><span class="line">var add = (a , b) =&gt;  &#123;</span><br><span class="line">    var result  = a + b;</span><br><span class="line">    return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="注：如果没有形参的时候也不能省略（）"><a href="#注：如果没有形参的时候也不能省略（）" class="headerlink" title="注：如果没有形参的时候也不能省略（）"></a>注：如果没有形参的时候也不能省略（）</h4><p>​       如果函数中只有一条带有return的函数时可以省略{}如下案例二</p>
-<p>​       箭头函数的this是由定义函数的时所在的执行环境</p>
-<h3 id="案例二"><a href="#案例二" class="headerlink" title="案例二"></a>案例二</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//es5中的写法</span><br><span class="line">var add=function(a,b)&#123;</span><br><span class="line">    return a+b;</span><br><span class="line">&#125;</span><br><span class="line">console.log(add(1,2));---------&gt;3</span><br><span class="line">//es6中的写法</span><br><span class="line">var add=(a,b)=&gt;a+b;</span><br><span class="line">console.log(add(1,2));------&gt;3</span><br></pre></td></tr></table></figure>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>参数可以有默认值：默认值有（number,boolean,string,引用类型）</p>
-<p>​                                   number:0,     boolean:false,        string:” “或者null    引用类型 ：null</p>
-<p>带有默认值的放在后面，没有默认值的放在前面</p>
-<p>案例三</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">function foo(a = 0, b = 0, c = 0 , ...args)&#123; // arguments(假数组)</span><br><span class="line">    var result = a + b + c;</span><br><span class="line">    console.log(result);</span><br><span class="line">    console.log(args);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();</span><br><span class="line">foo(100);</span><br><span class="line">foo(100 , 200);</span><br><span class="line">foo(100 , 200 , 300 , 400);</span><br><span class="line">foo(100 , 200 , 300 , 400 , 500 , 600);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 0</span><br><span class="line"> Array(0)</span><br><span class="line"> 100</span><br><span class="line"> Array(0)</span><br><span class="line"> 300</span><br><span class="line"> Array(0)</span><br><span class="line"> 600</span><br><span class="line"> Array(1)</span><br><span class="line"> 600</span><br><span class="line"> Array(3)</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/07/ES6的新特性五-函数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ES6的新特性四for-of" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/07/ES6的新特性四for-of/">ES6的新特性四for-of</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/07/ES6的新特性四for-of/" class="archive-article-date">
-  	<time datetime="2018-12-07T11:00:36.687Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="特性四：for-of"><a href="#特性四：for-of" class="headerlink" title="特性四：for-of"></a>特性四：for-of</h1><h4 id="循环数组：最基本的for循环，forEach-现在es6中新增了一个新的特性for-of"><a href="#循环数组：最基本的for循环，forEach-现在es6中新增了一个新的特性for-of" class="headerlink" title="循环数组：最基本的for循环，forEach,现在es6中新增了一个新的特性for-of"></a>循环数组：最基本的for循环，forEach,现在es6中新增了一个新的特性for-of</h4><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><h3 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h3><p>下面的代码让我们先回顾一下forEach的用法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let arr=[100,200,150,251];</span><br><span class="line">forEach(function(item,index)&#123;</span><br><span class="line">    console.log(item,index);--------------&gt;100,0 200,1  150,2  251,3</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="案列二"><a href="#案列二" class="headerlink" title="案列二"></a>案列二</h3><p>通过for-of的方法来实现这个功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let arr = [100 , 200 , 300];</span><br><span class="line">for(let value of arr)&#123;</span><br><span class="line">    console.log(value);-----------&gt;100,200,300</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注：for-of不等于for-in,for-of是无法遍历对象的</p>
-<h3 id="案例三"><a href="#案例三" class="headerlink" title="案例三"></a>案例三</h3><p>如果需要让对象支持for-of,我们可以使用Object.entries(对象)的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">     name:&apos;Rose&apos;,</span><br><span class="line">     age:100</span><br><span class="line"> &#125;;</span><br><span class="line"> for(let [key,value] of Object.entries(person))&#123;</span><br><span class="line">     console.log(key,value);---------------&gt;name rose</span><br><span class="line">                                             age 100</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/07/ES6的新特性四for-of/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ES6的新特性三解构和赋值" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/06/ES6的新特性三解构和赋值/">ES6的新特性三解构和赋值</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/06/ES6的新特性三解构和赋值/" class="archive-article-date">
-  	<time datetime="2018-12-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h1><p>快速获取数组或者对象中的值得方式</p>
-<h2 id="数组解构：语法-【变量，-，-，】-数组"><a href="#数组解构：语法-【变量，-，-，】-数组" class="headerlink" title="数组解构：语法 【变量， ， ，】=数组"></a>数组解构：语法 【变量， ， ，】=数组</h2><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let arr = [100 , 200 , 300 , 1 , 214];</span><br><span class="line">[a ,  ,  , b ,c , d = 800, e = 1000] = arr;</span><br><span class="line"></span><br><span class="line">console.log(a , b , c , d , e);------------》100 1 214 800 1000</span><br></pre></td></tr></table></figure>
-<h4 id="案例二"><a href="#案例二" class="headerlink" title="案例二"></a>案例二</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let arr = [100 , 200 , 300 , 1 , 214];</span><br><span class="line">[a , ...b ] = arr;</span><br><span class="line">console.log(a , b);---------》100 (4) [200, 300, 1, 214]</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/12/06/ES6的新特性三解构和赋值/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/06/ES6的新特性三解构和赋值/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ES6的新特性二let和const" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/06/ES6的新特性二let和const/">ES6的新特性二let和const</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/06/ES6的新特性二let和const/" class="archive-article-date">
-  	<time datetime="2018-12-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="ES6的新特性二let和const"><a href="#ES6的新特性二let和const" class="headerlink" title="ES6的新特性二let和const"></a>ES6的新特性二let和const</h1><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>全局作用域， 局部作用域， 块级作用域</p>
-<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h4><p>目的点击按钮分别输出1,2,3</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;button&gt;按钮一&lt;/button&gt;</span><br><span class="line">&lt;button&gt;按钮二&lt;/button&gt;</span><br><span class="line">&lt;button&gt;按钮三&lt;/button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   var buttons = document.querySelectorAll(&apos;button&apos;);</span><br><span class="line">   for(var i = 0 ;i &lt; buttons.length; i++)&#123;</span><br><span class="line">       (function(index)&#123;</span><br><span class="line">           buttons[index].onclick = function(e)&#123;</span><br><span class="line">               console.log(index+1);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)(i);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">  // console.log(i);----&gt;输出的是3</span><br></pre></td></tr></table></figure>
-<p>以上代码通过闭包的方法实现了以上的目的</p>
-<h4 id="案例二"><a href="#案例二" class="headerlink" title="案例二"></a>案例二</h4><p>let 块级作用域只能在{}之间</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(true)&#123;</span><br><span class="line">      let i = 100;</span><br><span class="line">      console.warn(i);-----&gt;100</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(i);----------&gt;i not defined</span><br></pre></td></tr></table></figure>
-<h4 id="案例三"><a href="#案例三" class="headerlink" title="案例三"></a>案例三</h4><p>当我们使用for循环遍历的时候就很适合用let声明i,避免全局污染</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let globalValue = 100;</span><br><span class="line">  for(let i = 0; i &lt; 10 ;i++)&#123;</span><br><span class="line">      // i作用域</span><br><span class="line">      console.log(globalValue)---------》100</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(i);-------------------》i not defined</span><br></pre></td></tr></table></figure>
-<h4 id="案例四"><a href="#案例四" class="headerlink" title="案例四"></a>案例四</h4><p>let和var的区别之一：let不可以重复声明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let value = 10;</span><br><span class="line">let value = &apos;晚上少吃点，注意身材&apos;;</span><br><span class="line">console.log(value);---------》value&apos; has already been declared</span><br></pre></td></tr></table></figure>
-<h4 id="案例五"><a href="#案例五" class="headerlink" title="案例五"></a>案例五</h4><p>let 和var的区别之一：暂时性死区</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let value = 200;</span><br><span class="line"></span><br><span class="line">   function foo()&#123;</span><br><span class="line">       </span><br><span class="line">       console.log(value);------------------》value is not defined</span><br><span class="line"></span><br><span class="line">       let value = &apos;不用着急，马上吃饭.&apos;;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">   foo();</span><br></pre></td></tr></table></figure>
-<h2 id="Const"><a href="#Const" class="headerlink" title="Const"></a>Const</h2><p>声明常量：1）声明常量必须赋值，并且后期不可以更改</p>
-<p>​                   2）建议在代码中无法更改的变量都尽量的去使用const</p>
-<p>注：基本类型：一旦声明，无法修改</p>
-<p>​        引用类型：可以修改对象的成员，但是不能为对象重新创建</p>
-<h3 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h3><h4 id="案例一-1"><a href="#案例一-1" class="headerlink" title="案例一"></a>案例一</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const PERSON = &#123;</span><br><span class="line">     name:&apos;Rose&apos;,</span><br><span class="line">     age:18</span><br><span class="line"> &#125;;</span><br><span class="line"> console.log(PERSON);</span><br><span class="line"></span><br><span class="line"> PERSON.name = &apos;Jack&apos;;</span><br><span class="line"> PERSON.age = 100;</span><br><span class="line"> console.log(PERSON);------------------》&#123;name: &quot;Rose&quot;, age: 18&#125;</span><br><span class="line">                                         &#123;name: &quot;Jack&quot;, age: 100&#125;</span><br><span class="line"></span><br><span class="line"> PERSON = &#123;&#125;; // new Object;---------------------》Assignment to constant variable.</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/06/ES6的新特性二let和const/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -929,6 +1217,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">HTTP面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">其他面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">HTML面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">javascript面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue面试题</a>
               </li>
             
             <div class="clearfix"></div>
