@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>ES6的新特性三解构和赋值 | Hexo</title>
+  <title>ES6的新特性二let和const | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="解构赋值快速获取数组或者对象中的值得方式 数组解构：语法 【变量， ， ，】=数组案例案例一1234let arr = [100 , 200 , 300 , 1 , 214];[a ,  ,  , b ,c , d = 800, e = 1000] = arr;console.log(a , b , c , d , e);------------》100 1 214 800 1000 案例二123">
+  <meta name="description" content="ES6的新特性二let和const作用域全局作用域， 局部作用域， 块级作用域 案例案例一目的点击按钮分别输出1,2,3 1234567891011121314&amp;lt;button&amp;gt;按钮一&amp;lt;/button&amp;gt;&amp;lt;button&amp;gt;按钮二&amp;lt;/button&amp;gt;&amp;lt;button&amp;gt;按钮三&amp;lt;/button&amp;gt;&amp;lt;script&amp;gt;   var but">
 <meta name="keywords" content="ES6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6的新特性三解构和赋值">
-<meta property="og:url" content="http://yoursite.com/2018/12/06/ES6的新特性三解构和赋值/index.html">
+<meta property="og:title" content="ES6的新特性二let和const">
+<meta property="og:url" content="http://yoursite.com/2018/02/07/ES6的新特性二let和const/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="解构赋值快速获取数组或者对象中的值得方式 数组解构：语法 【变量， ， ，】=数组案例案例一1234let arr = [100 , 200 , 300 , 1 , 214];[a ,  ,  , b ,c , d = 800, e = 1000] = arr;console.log(a , b , c , d , e);------------》100 1 214 800 1000 案例二123">
+<meta property="og:description" content="ES6的新特性二let和const作用域全局作用域， 局部作用域， 块级作用域 案例案例一目的点击按钮分别输出1,2,3 1234567891011121314&amp;lt;button&amp;gt;按钮一&amp;lt;/button&amp;gt;&amp;lt;button&amp;gt;按钮二&amp;lt;/button&amp;gt;&amp;lt;button&amp;gt;按钮三&amp;lt;/button&amp;gt;&amp;lt;script&amp;gt;   var but">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-08T08:12:04.555Z">
+<meta property="og:updated_time" content="2019-02-23T03:22:54.475Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6的新特性三解构和赋值">
-<meta name="twitter:description" content="解构赋值快速获取数组或者对象中的值得方式 数组解构：语法 【变量， ， ，】=数组案例案例一1234let arr = [100 , 200 , 300 , 1 , 214];[a ,  ,  , b ,c , d = 800, e = 1000] = arr;console.log(a , b , c , d , e);------------》100 1 214 800 1000 案例二123">
+<meta name="twitter:title" content="ES6的新特性二let和const">
+<meta name="twitter:description" content="ES6的新特性二let和const作用域全局作用域， 局部作用域， 块级作用域 案例案例一目的点击按钮分别输出1,2,3 1234567891011121314&amp;lt;button&amp;gt;按钮一&amp;lt;/button&amp;gt;&amp;lt;button&amp;gt;按钮二&amp;lt;/button&amp;gt;&amp;lt;button&amp;gt;按钮三&amp;lt;/button&amp;gt;&amp;lt;script&amp;gt;   var but">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -155,34 +155,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ES6的新特性三解构和赋值" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-ES6的新特性二let和const" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      ES6的新特性三解构和赋值
+      ES6的新特性二let和const
     </h1>
   
 
         
-        <a href="/2018/12/06/ES6的新特性三解构和赋值/" class="archive-article-date">
-  	<time datetime="2018-12-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-06</time>
+        <a href="/2018/02/07/ES6的新特性二let和const/" class="archive-article-date">
+  	<time datetime="2018-02-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h1><p>快速获取数组或者对象中的值得方式</p>
-<h2 id="数组解构：语法-【变量，-，-，】-数组"><a href="#数组解构：语法-【变量，-，-，】-数组" class="headerlink" title="数组解构：语法 【变量， ， ，】=数组"></a>数组解构：语法 【变量， ， ，】=数组</h2><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let arr = [100 , 200 , 300 , 1 , 214];</span><br><span class="line">[a ,  ,  , b ,c , d = 800, e = 1000] = arr;</span><br><span class="line"></span><br><span class="line">console.log(a , b , c , d , e);------------》100 1 214 800 1000</span><br></pre></td></tr></table></figure>
-<h4 id="案例二"><a href="#案例二" class="headerlink" title="案例二"></a>案例二</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let arr = [100 , 200 , 300 , 1 , 214];</span><br><span class="line">[a , ...b ] = arr;</span><br><span class="line">console.log(a , b);---------》100 (4) [200, 300, 1, 214]</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="对象解构：-变量名，变量名，，，-对象"><a href="#对象解构：-变量名，变量名，，，-对象" class="headerlink" title="对象解构：{变量名，变量名，，，}=对象"></a>对象解构：{变量名，变量名，，，}=对象</h2><h3 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h3><h4 id="案例一-1"><a href="#案例一-1" class="headerlink" title="案例一"></a>案例一</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let person = &#123;</span><br><span class="line">       name:&apos;Rose&apos;,</span><br><span class="line">       age:18,</span><br><span class="line">       address:&apos;无锡&apos;</span><br><span class="line">   &#125;;</span><br><span class="line"></span><br><span class="line">   let &#123;name , age , address&#125; = person;</span><br><span class="line">   console.log(name , age , address);----------&gt;Rose 18 无锡</span><br></pre></td></tr></table></figure>
-<h4 id="案例二-1"><a href="#案例二-1" class="headerlink" title="案例二"></a>案例二</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let name = &apos;Rose&apos;;</span><br><span class="line">let age = 18;</span><br><span class="line">let address = &apos;无锡&apos;;</span><br><span class="line"></span><br><span class="line">person = &#123;</span><br><span class="line">   name:name,</span><br><span class="line">   age:age,</span><br><span class="line">   address:address</span><br><span class="line">&#125;;</span><br><span class="line">console.log(person);-------》&#123;name: &quot;Rose&quot;, age: 18, address: &quot;无锡&quot;&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="案例三"><a href="#案例三" class="headerlink" title="案例三"></a>案例三</h4><p>ES6中档对象属性名和属性值相同的时候可以省略属性名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let name = &apos;Rose&apos;;</span><br><span class="line">let age = 18;</span><br><span class="line">let address = &apos;无锡&apos;;</span><br><span class="line"></span><br><span class="line">let person = &#123;</span><br><span class="line">    name,</span><br><span class="line">    age,</span><br><span class="line">    address</span><br><span class="line">&#125;;</span><br><span class="line">console.log(person);----------------》&#123;name: &quot;Rose&quot;, age: 18, address: &quot;无锡&quot;&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="ES6的新特性二let和const"><a href="#ES6的新特性二let和const" class="headerlink" title="ES6的新特性二let和const"></a>ES6的新特性二let和const</h1><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>全局作用域， 局部作用域， 块级作用域</p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h4><p>目的点击按钮分别输出1,2,3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;button&gt;按钮一&lt;/button&gt;</span><br><span class="line">&lt;button&gt;按钮二&lt;/button&gt;</span><br><span class="line">&lt;button&gt;按钮三&lt;/button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   var buttons = document.querySelectorAll(&apos;button&apos;);</span><br><span class="line">   for(var i = 0 ;i &lt; buttons.length; i++)&#123;</span><br><span class="line">       (function(index)&#123;</span><br><span class="line">           buttons[index].onclick = function(e)&#123;</span><br><span class="line">               console.log(index+1);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)(i);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">  // console.log(i);----&gt;输出的是3</span><br></pre></td></tr></table></figure>
+<p>以上代码通过闭包的方法实现了以上的目的</p>
+<h4 id="案例二"><a href="#案例二" class="headerlink" title="案例二"></a>案例二</h4><p>let 块级作用域只能在{}之间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(true)&#123;</span><br><span class="line">      let i = 100;</span><br><span class="line">      console.warn(i);-----&gt;100</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(i);----------&gt;i not defined</span><br></pre></td></tr></table></figure>
+<h4 id="案例三"><a href="#案例三" class="headerlink" title="案例三"></a>案例三</h4><p>当我们使用for循环遍历的时候就很适合用let声明i,避免全局污染</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let globalValue = 100;</span><br><span class="line">  for(let i = 0; i &lt; 10 ;i++)&#123;</span><br><span class="line">      // i作用域</span><br><span class="line">      console.log(globalValue)---------》100</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(i);-------------------》i not defined</span><br></pre></td></tr></table></figure>
+<h4 id="案例四"><a href="#案例四" class="headerlink" title="案例四"></a>案例四</h4><p>let和var的区别之一：let不可以重复声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let value = 10;</span><br><span class="line">let value = &apos;晚上少吃点，注意身材&apos;;</span><br><span class="line">console.log(value);---------》value&apos; has already been declared</span><br></pre></td></tr></table></figure>
+<h4 id="案例五"><a href="#案例五" class="headerlink" title="案例五"></a>案例五</h4><p>let 和var的区别之一：暂时性死区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let value = 200;</span><br><span class="line"></span><br><span class="line">   function foo()&#123;</span><br><span class="line">       </span><br><span class="line">       console.log(value);------------------》value is not defined</span><br><span class="line"></span><br><span class="line">       let value = &apos;不用着急，马上吃饭.&apos;;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">   foo();</span><br></pre></td></tr></table></figure>
+<h2 id="Const"><a href="#Const" class="headerlink" title="Const"></a>Const</h2><p>声明常量：1）声明常量必须赋值，并且后期不可以更改</p>
+<p>​                   2）建议在代码中无法更改的变量都尽量的去使用const</p>
+<p>注：基本类型：一旦声明，无法修改</p>
+<p>​        引用类型：可以修改对象的成员，但是不能为对象重新创建</p>
+<h3 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h3><h4 id="案例一-1"><a href="#案例一-1" class="headerlink" title="案例一"></a>案例一</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const PERSON = &#123;</span><br><span class="line">     name:&apos;Rose&apos;,</span><br><span class="line">     age:18</span><br><span class="line"> &#125;;</span><br><span class="line"> console.log(PERSON);</span><br><span class="line"></span><br><span class="line"> PERSON.name = &apos;Jack&apos;;</span><br><span class="line"> PERSON.age = 100;</span><br><span class="line"> console.log(PERSON);------------------》&#123;name: &quot;Rose&quot;, age: 18&#125;</span><br><span class="line">                                         &#123;name: &quot;Jack&quot;, age: 100&#125;</span><br><span class="line"></span><br><span class="line"> PERSON = &#123;&#125;; // new Object;---------------------》Assignment to constant variable.</span><br></pre></td></tr></table></figure>
 
       
 
@@ -273,7 +282,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/06/ES6的新特性三解构和赋值/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/07/ES6的新特性二let和const/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,11 +296,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/12/06/ES6的新特性二let和const/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/02/08/ES6的新特性三解构和赋值/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          ES6的新特性二let和const
+          ES6的新特性三解构和赋值
         
       </div>
     </a>
@@ -320,7 +329,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#解构赋值"><span class="toc-number">1.</span> <span class="toc-text">解构赋值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组解构：语法-【变量，-，-，】-数组"><span class="toc-number">1.1.</span> <span class="toc-text">数组解构：语法 【变量， ， ，】=数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#案例"><span class="toc-number">1.1.1.</span> <span class="toc-text">案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#案例一"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">案例一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#案例二"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">案例二</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象解构：-变量名，变量名，，，-对象"><span class="toc-number">1.2.</span> <span class="toc-text">对象解构：{变量名，变量名，，，}=对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#案例-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#案例一-1"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">案例一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#案例二-1"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">案例二</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#案例三"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">案例三</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ES6的新特性二let和const"><span class="toc-number">1.</span> <span class="toc-text">ES6的新特性二let和const</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域"><span class="toc-number">1.1.</span> <span class="toc-text">作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#案例"><span class="toc-number">1.1.1.</span> <span class="toc-text">案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#案例一"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">案例一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#案例二"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">案例二</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#案例三"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">案例三</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#案例四"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">案例四</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#案例五"><span class="toc-number">1.1.1.5.</span> <span class="toc-text">案例五</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Const"><span class="toc-number">1.2.</span> <span class="toc-text">Const</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#案例-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#案例一-1"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">案例一</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -432,11 +441,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Angular</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">HTTP面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">angular</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -444,19 +465,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">其他面试题</a>
+                <a href="javascript:void(0)" class="js-tag color2">搭建个人博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">HTML面试题</a>
+                <a href="javascript:void(0)" class="js-tag color4">面试题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css面试题</a>
+                <a href="javascript:void(0)" class="js-tag color2">HTML笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">javascript面试题</a>
+                <a href="javascript:void(0)" class="js-tag color1">css笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
