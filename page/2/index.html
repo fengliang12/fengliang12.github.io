@@ -152,81 +152,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-ES6新特性九iterator迭代器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/19/ES6新特性九iterator迭代器/">ES6新特性九iterator迭代器</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/19/ES6新特性九iterator迭代器/" class="archive-article-date">
-  	<time datetime="2018-02-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="ES6新特性九iterator迭代器"><a href="#ES6新特性九iterator迭代器" class="headerlink" title="ES6新特性九iterator迭代器"></a>ES6新特性九iterator迭代器</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h4 id="for-of可以遍历Array，set-和Map-，但是不能遍历Object"><a href="#for-of可以遍历Array，set-和Map-，但是不能遍历Object" class="headerlink" title="for-of可以遍历Array，set 和Map ，但是不能遍历Object"></a>for-of可以遍历Array，set 和Map ，但是不能遍历Object</h4><h4 id="Object-没有实现iterator接口"><a href="#Object-没有实现iterator接口" class="headerlink" title="Object 没有实现iterator接口"></a>Object 没有实现iterator接口</h4><h4 id="iterator"><a href="#iterator" class="headerlink" title="iterator"></a>iterator</h4><h2 id="实现要点"><a href="#实现要点" class="headerlink" title="实现要点"></a>实现要点</h2><h4 id="实现Symbol-iterator方法"><a href="#实现Symbol-iterator方法" class="headerlink" title="实现Symbol.iterator方法"></a>实现Symbol.iterator方法</h4><h4 id="返回对象"><a href="#返回对象" class="headerlink" title="返回对象"></a>返回对象</h4><h4 id="实现next-方法"><a href="#实现next-方法" class="headerlink" title="实现next 方法"></a>实现next 方法</h4><h4 id="next方法返回值必须是对象（done-value-done是false代表有值，done为true代表结尾"><a href="#next方法返回值必须是对象（done-value-done是false代表有值，done为true代表结尾" class="headerlink" title="next方法返回值必须是对象（done,value):done是false代表有值，done为true代表结尾"></a>next方法返回值必须是对象（done,value):done是false代表有值，done为true代表结尾</h4><h3 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">let arr = [&apos;A&apos; , &apos;B&apos; , &apos;C&apos;];</span><br><span class="line"></span><br><span class="line"> for(let value of arr)&#123;</span><br><span class="line">     console.log(value);</span><br><span class="line"> &#125;</span><br><span class="line"> console.warn(&apos;&apos;);</span><br><span class="line"></span><br><span class="line"> let it = arr[Symbol.iterator]();</span><br><span class="line"></span><br><span class="line"> let temp = it.next();</span><br><span class="line"> console.log(temp);</span><br><span class="line"></span><br><span class="line"> temp = it.next();</span><br><span class="line"> console.log(temp);</span><br><span class="line"></span><br><span class="line"> temp = it.next();</span><br><span class="line"> console.log(temp);</span><br><span class="line"></span><br><span class="line"> temp = it.next();</span><br><span class="line"> console.log(temp);</span><br></pre></td></tr></table></figure>
-<h3 id="案例二"><a href="#案例二" class="headerlink" title="案例二"></a>案例二</h3><h4 id="具体的实现原理"><a href="#具体的实现原理" class="headerlink" title="具体的实现原理"></a>具体的实现原理</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">let person = &#123;</span><br><span class="line">            name:&apos;Rose&apos;,</span><br><span class="line">            age : 18,</span><br><span class="line">            sayHi:function()&#123;</span><br><span class="line">                </span><br><span class="line">            &#125;,</span><br><span class="line">            [Symbol.iterator]:function()&#123;</span><br><span class="line">                let self = this;</span><br><span class="line">                let keys = Object.keys(self);</span><br><span class="line">                let index = 0;</span><br><span class="line">                return &#123;</span><br><span class="line">                    next:function()&#123;</span><br><span class="line">                        if(index &lt; keys.length)&#123;</span><br><span class="line">                            let result = &#123;</span><br><span class="line">                                value:[keys[index] ,                                                     self[keys[index]]],</span><br><span class="line">                                done:false</span><br><span class="line">                            &#125;;</span><br><span class="line">                            index++;</span><br><span class="line">                            return result;</span><br><span class="line">                        &#125;</span><br><span class="line">                        return &#123;</span><br><span class="line">                            done:true</span><br><span class="line">                        &#125;;</span><br><span class="line">                        </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;   </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        for(let [key,value] of person)&#123;</span><br><span class="line">            console.log(key , value);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/19/ES6新特性九iterator迭代器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-ES6的新特性八-promise" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1058,6 +983,159 @@ console.log([].constructor === Array);
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/10/07/使用Hexo和Git搭建个人博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-面试题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/01/面试题/">面试题</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/01/面试题/" class="archive-article-date">
+  	<time datetime="2017-06-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-网页前端性能优化的方式有哪些？"><a href="#1-网页前端性能优化的方式有哪些？" class="headerlink" title="1.网页前端性能优化的方式有哪些？"></a>1.网页前端性能优化的方式有哪些？</h4><ul>
+<li>减少 HTTP 请求</li>
+<li>减少 DOM 操作</li>
+<li>避免不必要的重绘与重排</li>
+<li>优化 CSS 选择器（从右向左匹配）</li>
+<li>CSS/JS minify，减少文件体积</li>
+<li>开启 Gzip 压缩</li>
+<li>将 CSS 放到顶部，JavaScript 放到尾部</li>
+<li>压缩图片以及使用 CSS Sprite</li>
+<li>使用 CDN 加速，适当进行文件缓存</li>
+<li>合理控制 cookie 大小（每次请求都会包含 cookie）</li>
+</ul>
+<h4 id="具体请看"><a href="#具体请看" class="headerlink" title="具体请看"></a>具体请看</h4><p><a href="http://jinlong.github.io/2017/05/08/optimising-the-front-end-for-the-browser/" target="_blank" rel="noopener">http://jinlong.github.io/2017/05/08/optimising-the-front-end-for-the-browser/</a></p>
+<h4 id="2-简单描述一下你做过的项目研发流程？"><a href="#2-简单描述一下你做过的项目研发流程？" class="headerlink" title="2. 简单描述一下你做过的项目研发流程？"></a>2. 简单描述一下你做过的项目研发流程？</h4><p>1&gt;约定规范(目录结构、命名规范、代码书写规范)</p>
+<p>2&gt;由我们组长（公司有的叫组长有的叫leader）给我们搭建前端工程gulp(最起码把browsersync模块能说出来，用它创建一个局域网server并实现监控文件有变化就自动刷新功能)（另外搭建前端工程的时候就会把我们会用到的库或者插件放进去）、拆分不同的前端模块给我们开发</p>
+<p>3&gt;正式开发（我们通过git工具来进行）</p>
+<p>4&gt;代码review（由我们组长来帮我们做）</p>
+<p>5&gt;交付给后端开发工程师，需要帮他们联调的话到时再帮他们联调</p>
+<h4 id="3-看你简历上面写的你会nodejs还有gulp，能给我描述下你都用这俩东西做过什么东西么？"><a href="#3-看你简历上面写的你会nodejs还有gulp，能给我描述下你都用这俩东西做过什么东西么？" class="headerlink" title="3.看你简历上面写的你会nodejs还有gulp，能给我描述下你都用这俩东西做过什么东西么？"></a>3.看你简历上面写的你会nodejs还有gulp，能给我描述下你都用这俩东西做过什么东西么？</h4><p>nodejs可以做一些服务器端的应用，比如我们可以用它搭建一个webserver（基于express框架可以实现）。我本人呢nodejs搭建webserver这块主要也是从网上看到一些文档自学的，谈不上精通。</p>
+<p>我们公司的话主要用gulp来实现我们前端自动化。比如以前我们公司做webapp的项目有这样的需求，我们会用sass这个预编译器，我们写css3属性的时候我们经常还会用autoprefixer这个插件，我们发布上线的时候还需要把css文件进行压缩，如果没有一个很好的工具能帮我们管理并自动实现上面的操作的话，还是挺麻烦的。现在我们就可以用gulp来实现这些操作的自动化</p>
+<h4 id="4-你有跟后端合作的经验是吧，你们都怎么协作的呀？"><a href="#4-你有跟后端合作的经验是吧，你们都怎么协作的呀？" class="headerlink" title="4. 你有跟后端合作的经验是吧，你们都怎么协作的呀？"></a>4. 你有跟后端合作的经验是吧，你们都怎么协作的呀？</h4><p>第一种回答：（smarty啥都描述不出来，ajax交互这块特别特别差的学生，但这限定了你能就业的公司，因为大部分公司还是希望他招的人是很全面的人才，所以这个不推荐）</p>
+<p>我们公司前端代码做完之后，直接就把前端代码的话交给后端了，页面绑定数据和ajax这块基本上都是后端开发工程师来完成的。除非他们碰到一些复杂点的js特别难写或者有些js的话需要处理样式这块的话会来让我们弄。</p>
+<p>第二种回答：（适合大部分同学，前提你得理清楚）</p>
+<p>我们公司的话，后端用的php语言，平时的话我们也会套一些smarty模板，只要我们前后端约定一下数据格式，然后我按照smarty模板的一些语法把数据解析成最终的HTML。</p>
+<p>另外我们公司ajax这块的话一般都由我们前端来做，而且后端做的ajax这块我们通常也会去看下，尤其是ajax调用成功还需要js操作css样式这块的情况。Ajax接口这块的话，我们会事先约定下数据格式，我们公司的接口一般都是json格式的，而且我们有个文档是专门描述这个接口（里面通常会描述下返回结果是对象还是数组，对应里面的每一项又都是啥），我们前端只需要把json格式的数据结合上html渲染到我们也没对应的位置即可。我们拿到数据的话，现在一般很少直接用js拼接html了，一般会借助js模板引擎（handlerbars）来做这方面工作。</p>
+<h4 id="5-平常碰到问题一般都是怎么解决的呢？"><a href="#5-平常碰到问题一般都是怎么解决的呢？" class="headerlink" title="5.平常碰到问题一般都是怎么解决的呢？"></a>5.平常碰到问题一般都是怎么解决的呢？</h4><p>百度、看一些博客（csdn、博客园cnblogs）、去论坛提问（比如知乎）、开发者问答社区（segmentfault）、会加一些qq技术交流群。翻墙去Stack Overflow论坛查找答案</p>
+<p>看前端大牛的博客</p>
+<p>玉伯 kissy框架（PC端淘宝、天猫）,sea.js（前端模块加载器）</p>
+<p>司徒正美 avalon（前端MVC框架）</p>
+<p>阮一峰（翻译了很多国外文档）</p>
+<p>张鑫旭（写了大量的博客，用生活化的例子来解释难点）</p>
+<p>大漠穷秋（angular1，angular2慕课网视频教程）</p>
+<p>徐飞（技术栈）</p>
+<p>朴灵</p>
+<p>寸志</p>
+<h4 id="6-专业宽度方面：最近在学习哪些新技术呀，以后准备往哪方面发展？"><a href="#6-专业宽度方面：最近在学习哪些新技术呀，以后准备往哪方面发展？" class="headerlink" title="6.专业宽度方面：最近在学习哪些新技术呀，以后准备往哪方面发展？"></a>6.专业宽度方面：最近在学习哪些新技术呀，以后准备往哪方面发展？</h4><p>我最近在学习react。。。</p>
+<p>我最近在学习sea.js。。。</p>
+<p>我最近在学require.js。。。</p>
+<p>我最近正在恶补node.js。。。</p>
+<p>技术方向：高级前端开发工程师、全栈工程师（前端+后端nodejs）、前端架构师</p>
+<p>管理方向：前端leader(前端主管、前端经理)、项目经理、CTO</p>
+<h4 id="7-你都做过什么项目呢？让他具体聊某一个项目中运用的技术"><a href="#7-你都做过什么项目呢？让他具体聊某一个项目中运用的技术" class="headerlink" title="7.你都做过什么项目呢？让他具体聊某一个项目中运用的技术"></a>7.你都做过什么项目呢？让他具体聊某一个项目中运用的技术</h4><p>注意：用心找自己做的项目中自己感觉最拿出来手的（复杂度最高，用的技术最多的项目），描述的时候尽可能往里面添加一些技术名词</p>
+<p>布局我们用html5+css3</p>
+<p>我们会用reset.css重置浏览器的默认样式</p>
+<p>JS框架的话我们选用的是jQuery(也可能是Zepto)</p>
+<p>我们用版本控制工具git来协同开发</p>
+<p>我们会基于gulp搭建的前端自动化工程来开发（里面包含有我们的项目结构、我们需要引用的第三方库等一些信息，我们还实现了sass编译、CSS3加前缀等的自动化）</p>
+<p>我们的项目中还用到了表单验证validate插件、图片懒加载Lazyload插件</p>
+<h4 id="8-为啥要离开上家单位呀（或者从前从事的不是计算机相关，为啥改行了）？"><a href="#8-为啥要离开上家单位呀（或者从前从事的不是计算机相关，为啥改行了）？" class="headerlink" title="8.为啥要离开上家单位呀（或者从前从事的不是计算机相关，为啥改行了）？"></a>8.为啥要离开上家单位呀（或者从前从事的不是计算机相关，为啥改行了）？</h4><p>1.千万别说这行工资高之类的</p>
+<p>2.要说，自己对这个很感兴趣，大学的时候加入的有这个社团，跟着学长学了这个东西，越学越感兴趣，于是利用大学课余时间自学了前端的知识（也可以把这个东西说成自己亲戚）</p>
+<p>5.我们这边的话会有加班的情况，不知道你能接受不？</p>
+<p>可以，个人愿意与公司一块成长的，而且也有了解这行会有加班，会配合公司把项目用心完成的。</p>
+<h4 id="9-有没有什么问题要问我？"><a href="#9-有没有什么问题要问我？" class="headerlink" title="9.有没有什么问题要问我？"></a>9.有没有什么问题要问我？</h4><p>1.别问加班和啥时候调工资之类的</p>
+<p>2.社保、公积金交么（千万别说基数是多少）</p>
+<p>3.问公司做的项目主要是哪方面呢，我擅长的技术（具体技术）不知道公司需不需要</p>
+<p>注意：如果去的是国企，国企很强调奉献，尽量往这方面靠</p>
+<p>面试公司前最好搜索下公司是干什么的，能把他们产品说上来点就更好了（上市公司、国企尤其得这样）</p>
+<h4 id="10-Angular的数据绑定采用什么机制？详述原理。"><a href="#10-Angular的数据绑定采用什么机制？详述原理。" class="headerlink" title="10.Angular的数据绑定采用什么机制？详述原理。"></a>10.Angular的数据绑定采用什么机制？详述原理。</h4><p>脏检查机制。</p>
+<p>双向数据绑定是 AngularJS 的核心机制之一。当 view 中有任何数据变化时，会更新到 model ，当 model 中数据有变化时，view 也会同步更新，显然，这需要一个监控。</p>
+<p>原理就是，Angular 在 scope 模型上设置了一个 监听队列，用来监听数据变化并更新 view 。每次绑定一个东西到 view 上时 AngularJS 就会往 $watch 队列里插入一条$watch ，用来检测它监视的 model 里是否有变化的东西。当浏览器接收到可以被 angular context 处理的事件时， $digest 循环就会触发，遍历所有的 $watch ，最后更新 dom。</p>
+<h4 id="11-如果已经开发完一个web应用用于手机端访问，请问需要在哪方面优化页面？"><a href="#11-如果已经开发完一个web应用用于手机端访问，请问需要在哪方面优化页面？" class="headerlink" title="11.如果已经开发完一个web应用用于手机端访问，请问需要在哪方面优化页面？"></a>11.如果已经开发完一个web应用用于手机端访问，请问需要在哪方面优化页面？</h4><p>按需加载</p>
+<p>静态资源压缩</p>
+<p>巧用图标字体</p>
+<p>保证首屏相应速度</p>
+<p>动画能用css3实现的尽量用css3实现</p>
+<p>移动端事件优化（fastclick）</p>
+<h4 id="12-Ascii、GBK、UTF、Unicode"><a href="#12-Ascii、GBK、UTF、Unicode" class="headerlink" title="12.Ascii、GBK、UTF、Unicode"></a>12.Ascii、GBK、UTF、Unicode</h4><ul>
+<li>Ascii（1个字节1个字符）</li>
+<li>GBK是国内的编码标准（汉字2个字节）</li>
+<li>Unicode是国际编码标准（统一2个字节表示一个字符）</li>
+<li>UTF是Unicode实现的另一个标准<blockquote>
+<p>unicode同样也不完美，这里就有两个的问题，一个是，如何才能区别unicode和ascii？<br><br>由于”半角”英文符号只需要用到低8位，所以其高8位永远是0，因此这种大气的方案在保存英文文本时会多浪费一倍的空间<br><br>unicode在很长一段时间内无法推广，直到互联网的出现，为解决unicode如何在网络上传输的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了，顾名思义，UTF-8就是每次8个位传输数据，而UTF-16就是每次16个位。UTF-8就是在互联网上使用最广的一种unicode的实现方式，这是为传输而设计的编码，并使编码无国界，这样就可以显示全世界上所有文化的字符了。UTF-8最大的一个特点，就是它是一种变长的编码方式。它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度，当字符在ASCII码的范围时，就用一个字节表示，保留了ASCII字符一个字节的编码做为它的一部分，注意的是unicode一个中文字符占2个字节，而UTF-8一个中文字符占3个字节）。从unicode到utf-8并不是直接的对应，而是要过一些算法和规则来转换。</p>
+</blockquote>
+</li>
+</ul>
+<p><a href="https://www.zhihu.com/question/23374078/answer/69732605" target="_blank" rel="noopener">https://www.zhihu.com/question/23374078/answer/69732605</a></p>
+<h4 id="13-什么是“前端路由”-什么时候适合使用“前端路由”-“前端路由”有哪些优点和"><a href="#13-什么是“前端路由”-什么时候适合使用“前端路由”-“前端路由”有哪些优点和" class="headerlink" title="13.什么是“前端路由”?什么时候适合使用“前端路由”? “前端路由”有哪些优点和"></a>13.什么是“前端路由”?什么时候适合使用“前端路由”? “前端路由”有哪些优点和</h4><p>缺点?<br>熟悉前后端通信相关知识<br>前端路由就是在不进行后端请求的情况下对页面进行跳转</p>
+<h4 id="14-Node-js特点："><a href="#14-Node-js特点：" class="headerlink" title="14.Node.js特点："></a>14.Node.js特点：</h4><p>①是一个javascript运行环境或者平台(可以解释执行js代码)，不是编程语言也不是js框架<br>②依赖于Chrome V8引擎进行代码解释<br>③基于事件驱动<br>④异步式I/O(非阻塞I/O)<br>⑤单进程、单线程、基于事件回调<br>⑥轻量、可伸缩，适用于实时数据交互应用</p>
+<h4 id="15-Node-js使用场景："><a href="#15-Node-js使用场景：" class="headerlink" title="15.Node.js使用场景："></a>15.Node.js使用场景：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Node.js适用场景：</span><br><span class="line">1. 用户表单收集</span><br><span class="line">2. 考试系统</span><br><span class="line">3. 聊天室</span><br><span class="line">4. 图文直播</span><br><span class="line">5. 提供JSON的API（为前台Angular Vue使用）</span><br><span class="line">6. 命令行工具  npm  git  hexo</span><br><span class="line"></span><br><span class="line">Node.js不适合的场景：</span><br><span class="line">1.计算密集型应用(计算密集需要花费大量的CPU资源)</span><br><span class="line">2.单用户多任务的程序  比如360安全卫士</span><br><span class="line">3.逻辑十分复杂的事务  </span><br><span class="line">4.unicode与国际化</span><br></pre></td></tr></table></figure>
+<h4 id="16-你说你热爱前端，那么应该-WEB-行业的发展很关注吧？-说说最近最流行的一些东西吧？"><a href="#16-你说你热爱前端，那么应该-WEB-行业的发展很关注吧？-说说最近最流行的一些东西吧？" class="headerlink" title="16.你说你热爱前端，那么应该 WEB 行业的发展很关注吧？ 说说最近最流行的一些东西吧？"></a>16.你说你热爱前端，那么应该 WEB 行业的发展很关注吧？ 说说最近最流行的一些东西吧？</h4><p>Node.js、Mongodb、npm、MVVM、react、angularjs、vue、nuxt、browserify、webpack、postCSS、gulp、grunt</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/01/面试题/">展开全文 >></a>
         </p>
       
 
